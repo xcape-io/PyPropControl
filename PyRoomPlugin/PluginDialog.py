@@ -7,15 +7,16 @@ MIT License (c) Marie Faure <dev at faure dot systems>
 Dialog to control PluginProps app running on Raspberry.
 """
 
-import os, re
+import os
+import codecs
+import configparser
 
 from PluginSettingsDialog import PluginSettingsDialog
 from AppletDialog import AppletDialog
 from LedWidget import LedWidget
-from PyQt5.QtGui import QIcon, QPalette
-from PyQt5.QtCore import Qt, pyqtSignal, pyqtSlot, QSize, QPoint, QSettings
-from PyQt5.QtWidgets import (QHBoxLayout, QVBoxLayout, QFrame,
-                             QPlainTextEdit, QPushButton, QSizePolicy, QComboBox, QLabel)
+from PyQt5.QtGui import QIcon
+from PyQt5.QtCore import Qt, pyqtSignal, pyqtSlot, QSize, QPoint
+from PyQt5.QtWidgets import QHBoxLayout, QVBoxLayout, QPushButton
 
 
 class PluginDialog(AppletDialog):
@@ -24,6 +25,7 @@ class PluginDialog(AppletDialog):
 
     # __________________________________________________________________
     def __init__(self, title, icon, logger):
+
         super().__init__(title, icon, logger)
 
         # always on top sometimes doesn't work
@@ -33,15 +35,17 @@ class PluginDialog(AppletDialog):
 
     # __________________________________________________________________
     def _buildUi(self):
-        self._options = {}
-        if os.path.isfile('definitions.ini'):
-            definitions = QSettings('definitions.ini', QSettings.IniFormat)
-            for group in definitions.childGroups():
-                definitions.beginGroup(group)
-                if group == "options":
-                    for key in definitions.childKeys():
-                        self._options[key] = definitions.value(key)
-                definitions.endGroup()
+
+        self._settings = configparser.ConfigParser()
+        ini = 'settings.ini'
+        if os.path.isfile(ini):
+            self._settings.read_file(codecs.open(ini, 'r', 'utf8'))
+
+        if 'parameters' not in self._settings.sections():
+            self._settings.add_section('parameters')
+
+        if 'param' not in self._settings['parameters']:
+            self._settings['parameters']['param'] = "1"  # default, values must be string
 
         main_layout = QVBoxLayout()
         main_layout.setSpacing(12)
@@ -73,6 +77,7 @@ class PluginDialog(AppletDialog):
     # __________________________________________________________________
     @pyqtSlot(str)
     def onPropsMessage(self, message):
+
         if message.startswith("DISCONNECTED"):
             self._led.switchOn('yellow')
         else:
@@ -81,13 +86,17 @@ class PluginDialog(AppletDialog):
 
     # __________________________________________________________________
     def closeEvent(self, e):
+
         self.aboutToClose.emit()
 
     # __________________________________________________________________
     @pyqtSlot()
     def settings(self):
-        dlg = PluginSettingsDialog(self._logger)
+
+        dlg = PluginSettingsDialog(self._settings, self._logger)
         dlg.setModal(True)
         dlg.move(self.pos() + QPoint(20, 20))
         dlg.exec()
 
+        with open('settings.ini', 'w') as configfile:
+            self._settings.write(configfile)

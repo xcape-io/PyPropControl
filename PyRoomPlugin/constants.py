@@ -12,6 +12,7 @@ ORGANIZATIONDOMAIN = "xcape.io"
 ORGANIZATIONNAME = "xcape.io"
 
 CONFIG_FILE = '.config.yml'
+LAYOUT_FILE = '.layout.yml'
 
 APPLICATION = "Room"
 

@@ -8,7 +8,6 @@ Base class for xcape.io Room applet (PyQt5 console application with MQTT).
 """
 
 from constants import *
-
 try:
     APPLICATION
 except NameError:
@@ -72,11 +71,11 @@ class MqttApplet(QApplication):
 
         ini = 'definitions.ini'
         if os.path.isfile(ini):
-            self.config = configparser.ConfigParser()
-            self.config.read_file(codecs.open(ini, 'r', 'utf8'))
-            if "mqtt" in self.config.sections():
-                for key in self.config.options("mqtt"):
-                    self._definitions[key] = self.config.get("mqtt", key)
+            self._config = configparser.ConfigParser()
+            self._config.read_file(codecs.open(ini, 'r', 'utf8'))
+            if "mqtt" in self._config.sections():
+                for key in self._config.options("mqtt"):
+                    self._definitions[key] = self._config.get("mqtt", key)
                     if key.startswith('mqtt-sub-'):
                         self._mqttSubscriptions.append(self._definitions[key])
                     if key == 'app-inbox':

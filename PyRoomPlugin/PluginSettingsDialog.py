@@ -7,20 +7,25 @@ MIT License (c) Marie Faure <dev at faure dot systems>
 Dialog to configure plugin parameters.
 """
 
-from PyQt5.QtCore import Qt, pyqtSignal, pyqtSlot, QSettings, QSize
-from PyQt5.QtWidgets import (QDialog, QHBoxLayout, QVBoxLayout, QGridLayout,
-                             QRadioButton, QLabel, QPushButton, QSizePolicy, QGroupBox)
+import os
+import codecs
+import configparser
+
+from PyQt5.QtCore import Qt, pyqtSlot
+from PyQt5.QtWidgets import QHBoxLayout, QVBoxLayout, QSizePolicy
+from PyQt5.QtWidgets import QDialog, QRadioButton, QPushButton, QGroupBox
 from PyQt5.QtGui import QIcon
 
 
 class PluginSettingsDialog(QDialog):
 
     # __________________________________________________________________
-    def __init__(self, logger):
+    def __init__(self, settings, logger):
 
         super(PluginSettingsDialog, self).__init__()
 
         self._logger = logger
+        self._settings = settings
 
         self.setAttribute(Qt.WA_AlwaysStackOnTop)
         self.setWindowFlags(self.windowFlags() & ~Qt.WindowContextHelpButtonHint | Qt.WindowStaysOnTopHint)
@@ -43,11 +48,10 @@ class PluginSettingsDialog(QDialog):
         param_box_layout.addWidget(param1_button)
         param_box_layout.addWidget(param2_button)
 
-        settings = QSettings("settings.ini", QSettings.IniFormat);
-        settings.setIniCodec("UTF-8");
-        settings.beginGroup("Parameters")
-        param = settings.value("param", 1)
-        settings.endGroup()
+        if 'param' in self._settings['parameters']:
+            param = self._settings['parameters']['param']
+        else:
+            param = "1"
 
         if param == "2":
             param2_button.setChecked(True)
@@ -72,24 +76,12 @@ class PluginSettingsDialog(QDialog):
     @pyqtSlot()
     def setParameters1(self):
 
-        self._logger.info(self.tr("Settings : set English parameters"))
-
-        settings = QSettings("settings.ini", QSettings.IniFormat);
-        settings.setIniCodec("UTF-8");
-        settings.beginGroup("Parameters")
-        settings.setValue("param", 1)
-        settings.endGroup()
-        settings.sync()
+        self._logger.info(self.tr("Settings : set 'param' parameters"))
+        self._settings['parameters']['param'] = "1"
 
     # __________________________________________________________________
     @pyqtSlot()
     def setParameters2(self):
 
-        self._logger.info(self.tr("Settings : set French parameters"))
-
-        settings = QSettings("settings.ini", QSettings.IniFormat);
-        settings.setIniCodec("UTF-8");
-        settings.beginGroup("Parameters")
-        settings.setValue("param", 2)
-        settings.endGroup()
-        settings.sync()
+        self._logger.info(self.tr("Settings : set 'param' parameters"))
+        self._settings['parameters']['param'] = "2"

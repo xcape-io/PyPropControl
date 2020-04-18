@@ -7,9 +7,16 @@ MIT License (c) Marie Faure <dev at faure dot systems>
 Main dialog of an applet.
 """
 
-from PyQt5.QtCore import pyqtSignal, pyqtSlot, QSettings, QPoint, QSize, QTimer
+from constants import *
+try:
+    LAYOUT_FILE
+except NameError:
+    LAYOUT_FILE = ".layout.yml"
+
+from PyQt5.QtCore import pyqtSignal, pyqtSlot, QPoint, QSize, QTimer
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QApplication, QDialog
+import os, yaml
 
 
 class AppletDialog(QDialog):
@@ -45,29 +52,37 @@ class AppletDialog(QDialog):
         self._logger.info(self.tr("Done with GUI"))
 
     # __________________________________________________________________
+    @pyqtSlot()
     def layoutLoadSettings(self):
 
-        settings = QSettings("settings.ini", QSettings.IniFormat);
-        settings.setIniCodec("UTF-8");
+        layout = {}
+        layout['x'] = 200
+        layout['y'] = 200
+        layout['w'] = 400
+        layout['h'] = 400
 
-        settings.beginGroup("Layout")
-        pos = settings.value("position", QPoint(200, 200))
-        size = settings.value("size", QSize(400, 400))
-        settings.endGroup()
+        layout['position'] = QPoint(200, 200)
+        layout['size'] = QSize(400, 400)
 
-        self.move(pos)
-        self.resize(size)
+        if os.path.isfile(LAYOUT_FILE):
+            with open(LAYOUT_FILE, 'r') as layoutfile:
+                layout = yaml.load(layoutfile, Loader=yaml.SafeLoader)
+
+        self.move(QPoint(layout['x'], layout['y']))
+        self.resize(QSize(layout['w'], layout['h']))
 
     # __________________________________________________________________
+    @pyqtSlot()
     def layoutSaveSettings(self):
 
-        settings = QSettings("settings.ini", QSettings.IniFormat);
-        settings.setIniCodec("UTF-8");
-        settings.beginGroup("Layout")
-        settings.setValue("position", self.pos())
-        settings.setValue("size", self.size())
-        settings.endGroup()
-        settings.sync()
+        layout = {}
+        layout['x'] = self.pos().x()
+        layout['y'] = self.pos().y()
+        layout['w'] = self.size().width()
+        layout['h'] = self.size().height()
+
+        with open(LAYOUT_FILE, 'w') as layoutfile:
+            yaml.dump(layout, layoutfile, default_flow_style=False)
 
     # __________________________________________________________________
     def moveEvent(self, event):
