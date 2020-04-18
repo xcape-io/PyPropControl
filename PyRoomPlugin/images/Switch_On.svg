@@ -1,0 +1,31 @@
+<svg width="160" height="90" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <filter color-interpolation-filters="sRGB" id="filter3803">
+   <feGaussianBlur stdDeviation="1.242857" id="feGaussianBlur3805"/>
+  </filter>
+  <linearGradient id="linearGradient3815">
+   <stop stop-color="#ffffff" offset="0" id="stop3817"/>
+   <stop stop-color="#c2c2c2" offset="1" id="stop3819"/>
+  </linearGradient>
+  <linearGradient x1="0.304711" y1="0.603713" x2="-0.053539" y2="1.036575" id="linearGradient3839">
+   <stop stop-color="#2ce24e" offset="0" id="stop3835"/>
+   <stop stop-color="#1abe39" offset="1" id="stop3837"/>
+  </linearGradient>
+  <linearGradient y2="0.068371" x2="1.252828" y1="0.445888" x1="0.564052" id="svg_1" xlink:href="#linearGradient3815"/>
+ </defs>
+ <metadata id="metadata30">image/svg+xmlOpenclipart</metadata>
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="92" width="162" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g id="layer1">
+   <g id="g4106">
+    <path fill="url(#linearGradient3839)" stroke="#1ed841" stroke-linecap="round" stroke-linejoin="round" d="m43.531498,86.421999c-22.88,0 -41.438,-18.526 -41.438,-41.406c0,-22.88 18.557,-41.438 41.438,-41.438l72.969,0c22.88,0 41.406,18.557 41.406,41.438c0,22.88 -18.526,41.406 -41.406,41.406l-72.969,0z" id="path2996"/>
+    <path opacity="0.56989" fill="#000000" stroke="#666666" stroke-width="1.0455" filter="url(#filter3803)" d="m155.341035,45.510527c0,-21.884836 -17.741168,-39.626013 -39.626013,-39.626013c-21.884842,0 -39.626012,17.741177 -39.626012,39.626013c0,21.884845 17.74117,39.626013 39.626012,39.626013c21.884845,0 39.626013,-17.741168 39.626013,-39.626013z" id="path3789"/>
+    <path fill="url(#svg_1)" d="m156.091035,45.000527c0,-21.884836 -17.741168,-39.626013 -39.626013,-39.626013c-21.884842,0 -39.626012,17.741177 -39.626012,39.626013c0,21.884845 17.74117,39.626013 39.626012,39.626013c21.884845,0 39.626013,-17.741168 39.626013,-39.626013z" id="path2998"/>
+   </g>
+  </g>
+ </g>
+</svg>

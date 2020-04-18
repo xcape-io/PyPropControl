@@ -1,0 +1,8 @@
+CountdownWidget {
+    background-color: black;
+}
+
+#chrono {
+    font-size: 128px;
+    color: white;
+}

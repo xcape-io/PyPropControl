@@ -1,0 +1,255 @@
+<!DOCTYPE QPH>
+<QPH sourcelanguage="en_US" language="fr_FR">
+<phrase>
+    <source>GUI started</source>
+    <target>GUI démarrée</target>
+</phrase>
+<phrase>
+    <source>Done with GUI</source>
+    <target>Terminé avec la GUI</target>
+</phrase>
+<phrase>
+    <source>Program connected to MQTT server</source>
+    <target>Programme connecté au serveur MQTT</target>
+</phrase>
+<phrase>
+    <source>Program connected to MQTT server</source>
+    <target>Programme connecté au serveur MQTT</target>
+</phrase>
+<phrase>
+    <source>Program subscribing to topic</source>
+    <target>Programme en cours de souscription au sujet</target>
+</phrase>
+<phrase>
+    <source>MQTT API : failed to call subscribe()</source>
+    <target>MQTT API : échec de l&apos;appel à subscribe()</target>
+</phrase>
+<phrase>
+    <source>Program failed to connect to MQTT server :  connection refused - incorrect protocol version</source>
+    <target>Le programme n&apos;a pas pu se connecter au serveur MQTT :  connection refusée - incorrect protocol version</target>
+</phrase>
+<phrase>
+    <source>Program failed to connect to MQTT server : connection refused - invalid client identifier</source>
+    <target>Le programme n&apos;a pas pu se connecter au serveur MQTT :  connection refusée - invalid client identifier</target>
+</phrase>
+<phrase>
+    <source>Program failed to connect to MQTT server : connection refused - server unavailable</source>
+    <target>Le programme n&apos;a pas pu se connecter au serveur MQTT :  connection refusée - server unavailable</target>
+</phrase>
+<phrase>
+    <source>Program failed to connect to MQTT server : connection refused - bad username or password</source>
+    <target>Le programme n&apos;a pas pu se connecter au serveur MQTT :  connection refusée - bad username or password</target>
+</phrase>
+<phrase>
+    <source>Program failed to connect to MQTT server : connection refused - not authorised</source>
+    <target>Le programme n&apos;a pas pu se connecter au serveur MQTT :  connection refusée - not authorised</target>
+</phrase>
+<phrase>
+    <source>Program failed to connect to MQTT server : return code was</source>
+    <target>Le programme n&apos;a pas pu se connecter au serveur MQTT :  return code was</target>
+</phrase>
+<phrase>
+    <source>Program disconnected from MQTT server</source>
+    <target>Programme déconnecté du serveur MQTT</target>
+</phrase>
+<phrase>
+    <source>MQTT client userdata not as expected</source>
+    <target>MQTT client &apos;userdata&apos; inattendu</target>
+</phrase>
+<phrase>
+    <source>Disconnected from MQTT server with rc=</source>
+    <target>Déconnecté du serveur MQTT avec rc=</target>
+</phrase>
+<phrase>
+    <source>from</source>
+    <target>de</target>
+</phrase>
+<phrase>
+    <source>Message received : &apos;</source>
+    <target>Message reçu : &apos;</target>
+</phrase>
+<phrase>
+    <source>&apos; in </source>
+    <target>&apos; dans </target>
+</phrase>
+<phrase>
+    <source>MQTT message decoding failed on</source>
+    <target>MQTT message impossible à décoder pour</target>
+</phrase>
+<phrase>
+    <source>Message published</source>
+    <target>Message publié</target>
+</phrase>
+<phrase>
+    <source>Program susbcribed to topic</source>
+    <target>Programme abonné au sujet</target>
+</phrase>
+<phrase>
+    <source>with QoS</source>
+    <target>avec QoS</target>
+</phrase>
+<phrase>
+    <source>Program has been unsusbcribed from topic</source>
+    <target>Le programme a été désabonné du sujet</target>
+</phrase>
+<phrase>
+    <source>Program sending message</source>
+    <target>Le programme envoie le message</target>
+</phrase>
+<phrase>
+    <source>MQTT API : failed to call publish() for</source>
+    <target>MQTT API : échec de l&apos;appel à publish() pour</target>
+</phrase>
+<phrase>
+    <source>Program failed to send message (disconnected)</source>
+    <target>Le programme n&apos;a pas pu envoyer le message (déconnecté&quot;)</target>
+</phrase>
+<phrase>
+    <source>Program initiated asynchronous connection to </source>
+    <target>Le programme a initié une connexion asynchrone à</target>
+</phrase>
+<phrase>
+    <source>MQTT API : failed to call connect_async()</source>
+    <target>MQTT API : échec de l&apos;appel à connect_async()</target>
+</phrase>
+<phrase>
+    <source>Teletext sub topic definition is missing</source>
+    <target>Définition manquante: mqtt-sub-props</target>
+</phrase>
+<phrase>
+    <source>Teletext sub topic definition is missing</source>
+    <target>Définition manquante: mqtt-sub-props</target>
+</phrase>
+<phrase>
+    <source>Language sub topic definition is missing</source>
+    <target>Définition manquante: mqtt-sub-control-scenario</target>
+</phrase>
+<phrase>
+    <source>Teletext</source>
+    <target>Télétexte</target>
+</phrase>
+<phrase>
+    <source>exitOnClose </source>
+    <target></target>
+</phrase>
+<phrase>
+    <source>Message (language) received : &apos;</source>
+    <target>Message (language) reçu : &apos;</target>
+</phrase>
+<phrase>
+    <source>&apos; in </source>
+    <target>&apos; dans </target>
+</phrase>
+<phrase>
+    <source>MQTT message (language) ignored (not supported) :</source>
+    <target>MQTT message (language) ignoré (non supporté) :</target>
+</phrase>
+<phrase>
+    <source>MQTT message (language) decoding failed on</source>
+    <target>MQTT message (language) impossible à décoder pour</target>
+</phrase>
+<phrase>
+    <source>Message received : &apos;</source>
+    <target>Message reçu : &apos;</target>
+</phrase>
+<phrase>
+    <source>MQTT message decoding failed on</source>
+    <target>MQTT message impossible à décoder pour</target>
+</phrase>
+<phrase>
+    <source>Message received from Teletext props : &apos;</source>
+    <target>Message reçu de la props Teletext : &apos;</target>
+</phrase>
+<phrase>
+    <source>Decoding MQTT message from Teletext props failed on</source>
+    <target>Message de la props Teletext impossible à décoder pour</target>
+</phrase>
+<phrase>
+    <source>TeletextPlugin inbox is not defined, message ignored</source>
+    <target>TeletextPlugin inbox n&apos;est pas définie, message ignoré</target>
+</phrase>
+<phrase>
+    <source>Display sub topic definition is missing</source>
+    <target>Définition manquante: sub topic display</target>
+</phrase>
+<phrase>
+    <source>Display message received from Teletext props : &apos;</source>
+    <target>Message reçu de la props Teletext : &apos;</target>
+</phrase>
+<phrase>
+    <source>Decoding MQTT display message from Teletext props failed on</source>
+    <target>Message Display de la props Teletext impossible à décoder pour</target>
+</phrase>
+<phrase>
+    <source>Settings</source>
+    <target>Configuration</target>
+</phrase>
+<phrase>
+    <source>Effects and language</source>
+    <target>Effets et langues</target>
+</phrase>
+<phrase>
+    <source>Erase draft</source>
+    <target>Effacer le brouillon</target>
+</phrase>
+<phrase>
+    <source>Display on TV</source>
+    <target>Afficher sur TV</target>
+</phrase>
+<phrase>
+    <source>Clue</source>
+    <target>Indice</target>
+</phrase>
+<phrase>
+    <source>Request received : language in </source>
+    <target>Requête reçue : langue en </target>
+</phrase>
+<phrase>
+    <source>Clear TV screen</source>
+    <target>Effacer l&apos;écran TV</target>
+</phrase>
+<phrase>
+    <source>ignored because &apos;fr&apos; is missing</source>
+    <target>ignoré car &apos;fr&apos; est manquant</target>
+</phrase>
+<phrase>
+    <source>ignored because &apos;en&apos; is missing</source>
+    <target>ignoré car &apos;en&apos; est manquant</target>
+</phrase>
+<phrase>
+    <source>Failed to load clue : </source>
+    <target>Impossible de charger l&apos;indice : </target>
+</phrase>
+<phrase>
+    <source>Settings</source>
+    <target>Configuration</target>
+</phrase>
+<phrase>
+    <source>English</source>
+    <target>Anglais</target>
+</phrase>
+<phrase>
+    <source>French</source>
+    <target>Français</target>
+</phrase>
+<phrase>
+    <source>Close</source>
+    <target>Fermer</target>
+</phrase>
+<phrase>
+    <source>Settings : set clues in English</source>
+    <target>Configuration : indices en anglais</target>
+</phrase>
+<phrase>
+    <source>Settings : set clues in French</source>
+    <target>Configuration : indices en français</target>
+</phrase>
+<phrase>
+    <source>Session done</source>
+    <target>Session terminée</target>
+</phrase>
+<phrase>
+    <source>Session started</source>
+    <target>Session démarrée</target>
+</phrase>
+</QPH>
