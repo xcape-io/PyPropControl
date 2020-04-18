@@ -1,6 +1,8 @@
 ﻿# PySkeletonPlugin
  ***Plugin to quickly create a plugin for xcape.io Room.***
- 
+
+<img src="../work-in-progress.png" alt="Work in progress" height="75" width="75" align="middle"> Work in progress...
+
 In the area of ​​Escape Room creation, we need to code quickly and reliably, and we need to streamline and reuse our code.
 
 With this plugin skeleton you can write a plugin for *<a href="https://xcape.io/" target="_blank">xcape.io</a>* **Room** software in minutes.

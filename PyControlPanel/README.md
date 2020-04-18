@@ -1,4 +1,5 @@
-﻿# WORK IN PROGRESS ...
+﻿
+<img src="../work-in-progress.png" alt="Work in progress" height="75" width="75" align="middle"> Work in progress...
 
 # Qt Countdown prop
 *Countdown example of pure Python props using **PyQt5**.*
