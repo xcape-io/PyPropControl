@@ -1,4 +1,4 @@
-﻿# PyQt5 Prop Control Panel
+﻿# PyQt5 Prop Control library
 *<a href="https://www.learnpyqt.com/" target="_blank">PyQt5</a> library to create control panels for escape room props.*
 
 <img src="work-in-progress.png" alt="Work in progress" height="75" width="75" align="middle"> Work in progress...
