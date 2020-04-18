@@ -8,7 +8,12 @@ Contains all the Room Control applet constants.
 
 # __________________________________________________________________
 # Required by MqttApplet
-APPNAME = "Room"  # the Room Control application
+ORGANIZATIONDOMAIN = "xcape.io"
+ORGANIZATIONNAME = "xcape.io"
+
+CONFIG_FILE = '.config.yml'
+
+APPLICATION = "Room"
 
 PYPROPS_CORELIBPATH = '../core'
 

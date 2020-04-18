@@ -8,12 +8,42 @@ Base class for xcape.io Room applet (PyQt5 console application with MQTT).
 """
 
 from constants import *
-import logging, logging.config
-import argparse, os
-from PyQt5.QtCore import QSettings, pyqtSignal, pyqtSlot
-from PyQt5.QtWidgets import QApplication
 
-MQTT_KEEPALIVE = 15  # 15 seconds is default MQTT_KEEPALIVE in Arduino PubSubClient.h
+try:
+    APPLICATION
+except NameError:
+    APPLICATION = "Props"
+try:
+    CONFIG_FILE
+except NameError:
+    CONFIG_FILE = ".config.yml"
+try:
+    MQTT_DEFAULT_HOST
+except NameError:
+    MQTT_DEFAULT_HOST = "localhost"
+try:
+    MQTT_DEFAULT_PORT
+except NameError:
+    MQTT_DEFAULT_PORT = 1883
+try:
+    MQTT_DEFAULT_QoS
+except NameError:
+    MQTT_DEFAULT_QoS = 1
+try:
+    MQTT_KEEPALIVE
+except NameError:
+    MQTT_KEEPALIVE = 15
+
+import argparse
+import codecs
+import configparser
+import logging
+import logging.config
+import os
+import yaml
+
+from PyQt5.QtCore import pyqtSignal, pyqtSlot
+from PyQt5.QtWidgets import QApplication
 
 
 class MqttApplet(QApplication):
@@ -25,33 +55,50 @@ class MqttApplet(QApplication):
 
         super().__init__(argv)
 
-        self.setApplicationName(APPNAME)
-
-        settings = QSettings("settings.ini", QSettings.IniFormat);
-        settings.setIniCodec("UTF-8");
-        settings.beginGroup("MQTT")
+        self.setApplicationName(APPLICATION)
+        self.setOrganizationDomain(ORGANIZATIONDOMAIN)
+        self.setOrganizationName(ORGANIZATIONNAME)
 
         self.publishMessageRequest.connect(self.publishMessage)
 
+        self._config = {}
         self._definitions = {}
         self._mqttSubscriptions = []
+        self._mqttInbox = None
+        self._mqttOutbox = None
+        self._mqttServerHost = MQTT_DEFAULT_HOST
+        self._mqttServerPort = MQTT_DEFAULT_PORT
+        self._publishable = []
 
-        if os.path.isfile('definitions.ini'):
-            definitions = QSettings('definitions.ini', QSettings.IniFormat)
-            for group in definitions.childGroups():
-                definitions.beginGroup(group)
-                if group == "mqtt":
-                    for key in definitions.childKeys():
-                        self._definitions[key] = definitions.value(key)
-                        if key.startswith('mqtt-sub-'):
-                            self._mqttSubscriptions.append(self._definitions[key])
-                definitions.endGroup()
+        ini = 'definitions.ini'
+        if os.path.isfile(ini):
+            self.config = configparser.ConfigParser()
+            self.config.read_file(codecs.open(ini, 'r', 'utf8'))
+            if "mqtt" in self.config.sections():
+                for key in self.config.options("mqtt"):
+                    self._definitions[key] = self.config.get("mqtt", key)
+                    if key.startswith('mqtt-sub-'):
+                        self._mqttSubscriptions.append(self._definitions[key])
+                    if key == 'app-inbox':
+                        self._mqttInbox = self._definitions[key]
+                        self._mqttSubscriptions.append(self._mqttInbox)
+                    if key == 'app-outbox':
+                        self._mqttOutbox = self._definitions[key]
+
+        if os.path.isfile(CONFIG_FILE):
+            with open(CONFIG_FILE, 'r') as conffile:
+                self._config = yaml.load(conffile, Loader=yaml.SafeLoader)
+        else:
+            self._config = {}
+
+        print('Config:', self._config)
 
         self._mqttClient = client
         self._mqttConnected = False
-
-        self._mqttServerHost = settings.value('host', MQTT_DEFAULT_HOST)
-        self._mqttServerPort = settings.value('port', MQTT_DEFAULT_PORT, type=int)
+        if 'host' in self._config:
+            self._mqttServerHost = self._config['host']
+        if 'port' in self._config:
+            self._mqttServerPort = self._config['port']
 
         self._mqttClient.on_connect = self.mqttOnConnect
         self._mqttClient.on_disconnect = self.mqttOnDisconnect
@@ -74,11 +121,11 @@ class MqttApplet(QApplication):
 
             if args['server']:
                 self._mqttServerHost = args['server'][0]
-                settings.setValue('host', self._mqttServerHost)
+                self._config['host'] = self._mqttServerHost
 
             if args['port']:
                 self._mqttServerPort = args['port'][0]
-                settings.setValue('port', self._mqttServerPort)
+                self._config['port'] = self._mqttServerHost
 
             if args['logger'] and os.path.isfile(args['logger']):
                 logging.config.fileConfig(args['logger'])
@@ -103,9 +150,17 @@ class MqttApplet(QApplication):
                 else:
                     self._logger = logging.getLogger('production')
                     self._logger.setLevel(logging.INFO)
-                ch = logging.FileHandler('plugin.log', 'w')
+                ch = logging.FileHandler('prop.log', 'w')
                 ch.setLevel(logging.INFO)
                 self._logger.addHandler(ch)
+
+            if self._mqttInbox is None:
+                self._logger.warning("Props inbox topic is not defined")
+            if self._mqttOutbox is None:
+                self._logger.warning("Props outbox topic is not defined")
+
+            with open(CONFIG_FILE, 'w') as conffile:
+                yaml.dump(self._config, conffile, default_flow_style=False)
         except:
             pass
 
@@ -260,3 +315,8 @@ class MqttApplet(QApplication):
     @property
     def logger(self):
         return self._logger
+
+    # __________________________________________________________________
+    @logger.setter
+    def logger(self, value):
+        self._logger = value
