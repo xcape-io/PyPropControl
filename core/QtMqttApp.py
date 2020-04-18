@@ -59,14 +59,8 @@ import logging, logging.config
 import argparse
 import os
 
-try:
-    if QTGUI:
-        from PyQt5.QtWidgets import QApplication as QAPP
-        from PyQt5.QtCore import pyqtSlot
-    else:
-        from PyQt5.QtCore import QCoreApplication as QAPP, pyqtSlot
-except NameError:
-    from PyQt5.QtCore import QCoreApplication as QAPP, pyqtSlot
+from PyQt5.QtWidgets import QApplication as QAPP
+from PyQt5.QtCore import pyqtSlot
 
 
 class QtMqttApp(QAPP):

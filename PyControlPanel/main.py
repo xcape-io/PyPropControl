@@ -37,16 +37,11 @@ from Singleton import Singleton, SingletonException
 
 me = None
 try:
-	me = Singleton()
+    me = Singleton()
 except SingletonException:
-	sys.exit(-1)
+    sys.exit(-1)
 except BaseException as e:
-	print(e)
-
-if USE_GPIO and os.path.isfile('/opt/vc/include/bcm_host.h'):
-    import RPi.GPIO as GPIO
-    GPIO.setmode(GPIO.BCM)
-    GPIO.setwarnings(False)
+    print(e)
 
 mqtt_client = mqtt.Client(uuid.uuid4().urn, clean_session=True, userdata=None)
 
@@ -56,21 +51,18 @@ app = CountdownApp(sys.argv, mqtt_client, debugging_mqtt=False)
 signal.signal(signal.SIGTERM, app.quit)
 signal.signal(signal.SIGINT, app.quit)
 if platform.system() != 'Windows':
-	signal.signal(signal.SIGHUP, app.quit)
-	signal.signal(signal.SIGQUIT, app.quit)
+    signal.signal(signal.SIGHUP, app.quit)
+    signal.signal(signal.SIGQUIT, app.quit)
 
 app.start()
 
 rc = app.exec_()
 
-if USE_GPIO and os.path.isfile('/opt/vc/include/bcm_host.h'):
-    GPIO.cleanup()
-
 try:
-	mqtt_client.disconnect()
-	mqtt_client.loop_stop()
+    mqtt_client.disconnect()
+    mqtt_client.loop_stop()
 except:
-	pass
+    pass
 
 del(me)
 

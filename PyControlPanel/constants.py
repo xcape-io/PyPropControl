@@ -8,13 +8,9 @@ Contains all the application constants. As a rule all constants are named in all
 
 APPLICATION = "countdown"
 
-QTGUI = True
-
-PYPROPS_CORELIBPATH = '../../core'
+PYPROPS_CORELIBPATH = '../core'
 
 PUBLISHALLDATA_PERIOD = 30.0
-
-USE_GPIO = True
 
 #__________________________________________________________________
 # Required by MqttConsoleApp

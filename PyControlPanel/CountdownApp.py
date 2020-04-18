@@ -20,9 +20,6 @@ from CountdownWidget import CountdownWidget
 
 from constants import *
 
-if USE_GPIO and os.path.isfile('/opt/vc/include/bcm_host.h'):
-    import RPi.GPIO as GPIO
-
 
 class CountdownApp(QtPropApp):
     chronoUpdated = pyqtSignal(str, bool)
@@ -51,8 +48,6 @@ class CountdownApp(QtPropApp):
         self._mainWidget.aboutToClose.connect(self.exitOnClose)
         self._mainWidget.show()
 
-        self._mainWidget.showFullScreen()
-        self._mainWidget.setCursor(Qt.BlankCursor)
         self.chronoUpdated.connect(self._mainWidget.setTime)
 
     # __________________________________________________________________
