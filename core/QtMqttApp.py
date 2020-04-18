@@ -32,7 +32,7 @@ from constants import *
 try:
     APPLICATION
 except NameError:
-    APPLICATION = "Props"
+    APPLICATION = "PropControl"
 try:
     CONFIG_FILE
 except NameError:
@@ -59,11 +59,11 @@ import logging, logging.config
 import argparse
 import os
 
-from PyQt5.QtWidgets import QApplication as QAPP
+from PyQt5.QtWidgets import QApplication
 from PyQt5.QtCore import pyqtSlot
 
 
-class QtMqttApp(QAPP):
+class QtMqttApp(QApplication):
 
     # __________________________________________________________________
     def __init__(self, argv, client, debugging_mqtt=False):
@@ -344,7 +344,7 @@ class QtMqttApp(QAPP):
     # __________________________________________________________________
     @pyqtSlot()
     def quit(self, a=None, b=None):
-        QAPP.quit()
+        QApplication.quit()
 
     # __________________________________________________________________
     def start(self):
