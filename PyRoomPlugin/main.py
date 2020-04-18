@@ -19,12 +19,20 @@ optional arguments:
 
 To switch MQTT broker, kill the program and start again with new arguments.
 """
-
-from PyQt5.QtCore import QUuid
-from PyQt5.QtGui import QIcon
-
 import paho.mqtt.client as mqtt
-import os,  sys,  platform, signal
+import os, sys, platform, signal, uuid
+
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
+from constants import *
+
+try:
+    PYPROPS_CORELIBPATH
+    sys.path.append(PYPROPS_CORELIBPATH)
+except NameError:
+    pass
+
+from PyQt5.QtGui import QIcon
 
 from PluginApplet import PluginApplet
 from Singleton import Singleton, SingletonException
@@ -37,12 +45,8 @@ except SingletonException:
 	sys.exit(-1)
 except BaseException as e:
 	print(e)
-	
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-clientid = "Xcape/Plugin/" + QUuid.createUuid().toString()
-
-mqtt_client = mqtt.Client(clientid, clean_session=True, userdata=None)
+mqtt_client = mqtt.Client(uuid.uuid4().urn, clean_session=True, userdata=None)
 
 applet = PluginApplet(sys.argv,  mqtt_client,  debugging_mqtt=True)
 
