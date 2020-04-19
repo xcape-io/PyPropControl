@@ -26,11 +26,14 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 from constants import *
 
-try:
-    PYPROPS_CORELIBPATH
-    sys.path.append(PYPROPS_CORELIBPATH)
-except NameError:
-    pass
+if os.path.exists('./core'):
+	sys.path.append('./core')
+else:
+	try:
+		PYPROPS_CORELIBPATH
+		sys.path.append(PYPROPS_CORELIBPATH)
+	except NameError:
+		pass
 
 from PyQt5.QtGui import QIcon
 

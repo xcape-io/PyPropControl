@@ -23,6 +23,7 @@ from PyQt5.QtWidgets import QHBoxLayout, QVBoxLayout, QPushButton
 
 class PluginDialog(AppletDialog):
     aboutToClose = pyqtSignal()
+    publishMessage = pyqtSignal(str, str)
     switchLed = pyqtSignal(str, str)
 
     # __________________________________________________________________
@@ -76,9 +77,23 @@ class PluginDialog(AppletDialog):
         settings_button.pressed.connect(self.settings)
         self.switchLed.connect(self._led.switchOn)
 
+
     # __________________________________________________________________
-    @pyqtSlot(str)
-    def onPropsMessage(self, message):
+    @pyqtSlot()
+    def onConnectedToMqttBroker(self):
+
+        if self._led.color() == 'red':
+            self._led.switchOn('yellow')
+
+    # __________________________________________________________________
+    @pyqtSlot()
+    def onDisconnectedToMqttBroker(self):
+
+        self._led.switchOn('red')
+
+    # __________________________________________________________________
+    @pyqtSlot(str, str)
+    def onMessageReceived(self, topic, message):
 
         if message.startswith("DISCONNECTED"):
             self._led.switchOn('yellow')

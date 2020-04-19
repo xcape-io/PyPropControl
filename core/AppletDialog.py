@@ -20,7 +20,6 @@ import os, yaml
 
 
 class AppletDialog(QDialog):
-    switchLed = pyqtSignal(str, str)
 
     # __________________________________________________________________
     def __init__(self, title, icon, logger):

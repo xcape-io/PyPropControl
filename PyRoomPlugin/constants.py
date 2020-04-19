@@ -15,7 +15,7 @@ CONFIG_FILE = '.config.yml'
 
 APPLICATION = "Room"
 
-PYPROPS_CORELIBPATH = '../core'
+PYPROPS_CORELIBPATH = '../core' # however ./core is preferred
 
 MQTT_DEFAULT_HOST = 'localhost'
 MQTT_DEFAULT_PORT = 1883

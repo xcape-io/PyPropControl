@@ -46,8 +46,10 @@ from PyQt5.QtWidgets import QApplication
 
 
 class MqttApplet(QApplication):
+    connectedToMqttBroker = pyqtSignal()
+    disconnectedToMqttBroker = pyqtSignal()
     messageReceived = pyqtSignal(str, str)
-    publishMessageRequest = pyqtSignal(str, str)
+    publishMessage = pyqtSignal(str, str)
 
     # __________________________________________________________________
     def __init__(self, argv, client, debugging_mqtt=False):
@@ -58,7 +60,7 @@ class MqttApplet(QApplication):
         self.setOrganizationDomain(ORGANIZATIONDOMAIN)
         self.setOrganizationName(ORGANIZATIONNAME)
 
-        self.publishMessageRequest.connect(self.publishMessage)
+        self.publishMessage.connect(self._onPublishMessage)
 
         self._config = {}
         self._definitions = {}
@@ -175,6 +177,7 @@ class MqttApplet(QApplication):
             self._mqttConnected = True
             # self._logger.debug("Connected to MQTT server with flags: ", flags) # flags is dict
             self._logger.info(self.tr("Program connected to MQTT server"))
+            self.connectedToMqttBroker.emit()
             for topic in self._mqttSubscriptions:
                 try:
                     (result, mid) = self._mqttClient.subscribe(topic, MQTT_DEFAULT_QoS)
@@ -201,13 +204,12 @@ class MqttApplet(QApplication):
             self._logger.warning(
                 "{0} {1}".format(self.tr("Program failed to connect to MQTT server : return code was"), rc))
 
-        self.onConnect(client, userdata, flags, rc)
-
     # __________________________________________________________________
     def _mqttOnDisconnect(self, client, userdata, rc):
 
         self._mqttConnected = False
         self._logger.info(self.tr("Program disconnected from MQTT server"))
+        self.disconnectedToMqttBroker.emit()
 
         serv = ''
         if isinstance(userdata, str):
@@ -224,8 +226,6 @@ class MqttApplet(QApplication):
                 "{0}{1} {2} {3}".format(self.tr("Disconnected from MQTT server with rc="), rc, self.tr("from"), serv))
         else:
             self._logger.warning("{0}{1}".format(self.tr("Disconnected from MQTT server with rc="), rc))
-
-        self.onDisconnect(client, userdata, rc)
 
     # __________________________________________________________________
     def _mqttOnLog(self, client, userdata, level, buf):
@@ -267,24 +267,10 @@ class MqttApplet(QApplication):
         self._logger.debug("MQTT topic is unsubscribed : mid=%s", mid)
         self._logger.info("{0} (mid={1})".format(self.tr("Program has been unsusbcribed from topic"), mid))
 
-    # __________________________________________________________________
-    def onConnect(self, client, userdata, flags, rc):
-        # extend as a virtual method
-        pass
-
-    # __________________________________________________________________
-    def onDisconnect(self, client, userdata, rc):
-        # extend as a virtual method
-        pass
-
-    # __________________________________________________________________
-    def onMessage(self, topic, message):
-        # extend as a virtual method
-        print(topic, message)
 
     # __________________________________________________________________
     @pyqtSlot(str, str)
-    def publishMessage(self, topic, message):
+    def _onPublishMessage(self, topic, message):
 
         if self._mqttConnected:
             try:
