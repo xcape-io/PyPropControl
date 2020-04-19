@@ -13,6 +13,9 @@ To write your very first **Room** plugin, we recommend you follow the
 <a href="https://xcape.io/public/documentation/en/room/Plugintutorial.html" target="_blank">Plugin tutorial</a> in the <a href="https://xcape.io/public/documentation/en/room/Help.html" target="_blank">**Room** manual</a>.
  
 ## Installation
+
+# !!! First install Python 3.8.x in C:\Python38 (use install.bat to create venv)
+
 Create your new plugin folder in you room *Plugins* folder, example for a plugin we want named as **Echo** :
 
 ```bash
