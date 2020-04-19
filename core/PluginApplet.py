@@ -24,7 +24,7 @@ class PluginApplet(MqttApplet):
 
         # on_message per topic callbacks
         try:
-            mqtt_sub_props = self._definitions['mqtt-sub-props']
+            mqtt_sub_props = self._definitions['mqtt-sub-prop']
             self._mqttClient.message_callback_add(mqtt_sub_props, self.mqttOnMessageFromProps)
         except Exception as e:
             self._logger.error(self.tr("Plugin sub topic definition is missing"))

@@ -114,11 +114,11 @@
 </phrase>
 <phrase>
     <source>Teletext sub topic definition is missing</source>
-    <target>Définition manquante: mqtt-sub-props</target>
+    <target>Définition manquante: mqtt-sub-prop</target>
 </phrase>
 <phrase>
     <source>Teletext sub topic definition is missing</source>
-    <target>Définition manquante: mqtt-sub-props</target>
+    <target>Définition manquante: mqtt-sub-prop</target>
 </phrase>
 <phrase>
     <source>Language sub topic definition is missing</source>

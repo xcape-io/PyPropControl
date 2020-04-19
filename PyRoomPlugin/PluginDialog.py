@@ -11,9 +11,11 @@ import os
 import codecs
 import configparser
 
+from constants import *
 from PluginSettingsDialog import PluginSettingsDialog
 from AppletDialog import AppletDialog
 from LedWidget import LedWidget
+
 from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import Qt, pyqtSignal, pyqtSlot, QSize, QPoint
 from PyQt5.QtWidgets import QHBoxLayout, QVBoxLayout, QPushButton
@@ -50,7 +52,7 @@ class PluginDialog(AppletDialog):
         main_layout = QVBoxLayout()
         main_layout.setSpacing(12)
 
-        self._led = LedWidget(self.tr("Props name"), QSize(40, 20))
+        self._led = LedWidget(PROP_NAME, QSize(40, 20))
         self._led.setRedAsBold(True)
         self._led.setRedAsRed(True)
         self._led.switchOn('gray')

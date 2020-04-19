@@ -12,7 +12,6 @@ ORGANIZATIONDOMAIN = "xcape.io"
 ORGANIZATIONNAME = "xcape.io"
 
 CONFIG_FILE = '.config.yml'
-LAYOUT_FILE = '.layout.yml'
 
 APPLICATION = "Room"
 
@@ -25,3 +24,11 @@ MQTT_DEFAULT_QoS = 1
 # __________________________________________________________________
 # Required by PluginApplet
 APPDISPLAYNAME = "Room"  # the Room Control application
+
+# __________________________________________________________________
+# Required by the widgets
+LAYOUT_FILE = '.layout.yml'
+
+# __________________________________________________________________
+# Required by the application
+PROP_NAME = 'Arduino Blink'
