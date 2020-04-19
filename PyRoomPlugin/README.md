@@ -29,7 +29,7 @@ You are now ready to hack a new plugin :
 
 ## Author
 
-**Marie FAURE** (Mar 17th, 2020)
+**Marie FAURE** (Apr 19th, 2020)
 * company: FAURE SYSTEMS SAS
 * mail: *dev at faure dot systems*
 * github: <a href="https://github.com/fauresystems?tab=repositories" target="_blank">fauresystems</a>
