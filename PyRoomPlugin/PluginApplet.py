@@ -21,7 +21,8 @@ class PluginApplet(MqttApplet):
 
         self.setApplicationDisplayName(APPDISPLAYNAME)
 
-        self._PluginDialog = PluginDialog(self.tr("Plugin"), './room.png', self._logger)
+        self._PluginDialog = PluginDialog(self.tr("Plugin"), './room.png',
+                                          self._definitions['mqtt-sub-prop'], self._logger)
         self._PluginDialog.aboutToClose.connect(self.exitOnClose)
         self._PluginDialog.publishMessage.connect(self.publishMessage)
 

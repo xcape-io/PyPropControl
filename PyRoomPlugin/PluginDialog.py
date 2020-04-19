@@ -10,6 +10,7 @@ Dialog to control PluginProps app running on Raspberry.
 import os
 import codecs
 import configparser
+import re
 
 from constants import *
 from PluginSettingsDialog import PluginSettingsDialog
@@ -27,9 +28,13 @@ class PluginDialog(AppletDialog):
     switchLed = pyqtSignal(str, str)
 
     # __________________________________________________________________
-    def __init__(self, title, icon, logger):
+    def __init__(self, title, icon, prop_outbox, logger):
 
         super().__init__(title, icon, logger)
+
+        self._propOutbox = prop_outbox
+        self._reDataSplitValues = re.compile(r'[^\s]+\s*=')
+        self._reDataVariables = re.compile(r'([^\s]+)\s*=')
 
         # always on top sometimes doesn't work
         self.setAttribute(Qt.WA_AlwaysStackOnTop)
@@ -74,9 +79,33 @@ class PluginDialog(AppletDialog):
 
         self.setLayout(main_layout)
 
-        settings_button.pressed.connect(self.settings)
+        settings_button.pressed.connect(self.onSettingsButton)
         self.switchLed.connect(self._led.switchOn)
 
+    # __________________________________________________________________
+    def _parsePropData(self, message):
+
+        message = 'DATA led=1 blinking = yes and no'
+        variables = {}
+        data = message[5:]
+        vars = re.split(self._reDataSplitValues, data)[1:]
+
+        try:
+            m = re.findall(self._reDataVariables, data)
+            if m:
+                i = 0
+                for var in m:
+                    variables[var] = vars[i].strip()
+                    i = i+1
+        except Exception as e:
+            self._logger.debug(e)
+
+        print(variables)
+
+    # __________________________________________________________________
+    def closeEvent(self, e):
+
+        self.aboutToClose.emit()
 
     # __________________________________________________________________
     @pyqtSlot()
@@ -101,14 +130,12 @@ class PluginDialog(AppletDialog):
             if self._led.color() != 'green':
                 self._led.switchOn('green')
 
-    # __________________________________________________________________
-    def closeEvent(self, e):
-
-        self.aboutToClose.emit()
+        if topic == self._propOutbox and message.startswith('DATA '):
+            self._parsePropData(message)
 
     # __________________________________________________________________
     @pyqtSlot()
-    def settings(self):
+    def onSettingsButton(self):
 
         dlg = PluginSettingsDialog(self._settings, self._logger)
         dlg.setModal(True)
@@ -117,3 +144,4 @@ class PluginDialog(AppletDialog):
 
         with open('settings.ini', 'w') as configfile:
             self._settings.write(configfile)
+
