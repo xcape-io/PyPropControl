@@ -7,8 +7,8 @@ MIT License (c) Marie Faure <dev at faure dot systems>
 Prop data widget.
 """
 
-from PyQt5.QtWidgets import QWidget, QLabel, QHBoxLayout
-from PyQt5.QtCore import Qt, pyqtSignal, pyqtSlot
+from PyQt5.QtWidgets import QWidget, QLabel, QHBoxLayout, QSizePolicy
+from PyQt5.QtCore import Qt, pyqtSlot
 
 
 class DataWidget(QWidget):
@@ -21,6 +21,7 @@ class DataWidget(QWidget):
 
         self._dataLabel = QLabel(label + ' : ')
         self._dataLabel.setAlignment(Qt.AlignLeft | Qt.AlignVCenter)
+        self._dataLabel.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
 
         self._dataValue = QLabel()
         self._dataValue.setAlignment(Qt.AlignLeft | Qt.AlignVCenter)
