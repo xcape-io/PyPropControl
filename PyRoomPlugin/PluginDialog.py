@@ -15,6 +15,7 @@ import re
 from constants import *
 from PluginSettingsDialog import PluginSettingsDialog
 from AppletDialog import AppletDialog
+from DataWidget import DataWidget
 from LedWidget import LedWidget
 
 from PyQt5.QtGui import QIcon
@@ -24,6 +25,7 @@ from PyQt5.QtWidgets import QHBoxLayout, QVBoxLayout, QPushButton
 
 class PluginDialog(AppletDialog):
     aboutToClose = pyqtSignal()
+    propDataReveived = pyqtSignal(dict)
     publishMessage = pyqtSignal(str, str)
     switchLed = pyqtSignal(str, str)
 
@@ -75,6 +77,11 @@ class PluginDialog(AppletDialog):
         header_layout.addWidget(settings_button, Qt.AlignRight)
         main_layout.addLayout(header_layout)
 
+
+        self._dataLed = DataWidget(self.tr("Led"), 'led')
+        main_layout.addWidget(self._dataLed)
+
+
         main_layout.addStretch(0)
 
         self.setLayout(main_layout)
@@ -82,10 +89,11 @@ class PluginDialog(AppletDialog):
         settings_button.pressed.connect(self.onSettingsButton)
         self.switchLed.connect(self._led.switchOn)
 
+        self.propDataReveived.connect(self._dataLed.onDataReceived)
+
     # __________________________________________________________________
     def _parsePropData(self, message):
 
-        message = 'DATA led=1 blinking = yes and no'
         variables = {}
         data = message[5:]
         vars = re.split(self._reDataSplitValues, data)[1:]
@@ -100,7 +108,7 @@ class PluginDialog(AppletDialog):
         except Exception as e:
             self._logger.debug(e)
 
-        print(variables)
+        self.propDataReveived.emit(variables)
 
     # __________________________________________________________________
     def closeEvent(self, e):

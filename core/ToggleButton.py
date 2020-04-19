@@ -55,10 +55,6 @@ class ToggleButton(QWidget):
         self.switchOn('gray')
 
     # __________________________________________________________________
-    def close(self):
-        self._file.close()
-
-    # __________________________________________________________________
     def color(self):
         return self._color
 

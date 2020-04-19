@@ -55,10 +55,6 @@ class LedWidget(QWidget):
         self.switchOn('gray')
 
     # __________________________________________________________________
-    def close(self):
-        self._file.close()
-
-    # __________________________________________________________________
     def color(self):
         return self._color
 
@@ -70,8 +66,8 @@ class LedWidget(QWidget):
     def setRedAsRed(self, yes):
         self._redAsRed = yes
 
-    @pyqtSlot(str, str)
     # __________________________________________________________________
+    @pyqtSlot(str, str)
     def switchOn(self, color, text=""):
 
         if not text:
