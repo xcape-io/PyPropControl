@@ -25,13 +25,13 @@ class PluginApplet(MqttApplet):
         # on_message per topic callbacks
         try:
             mqtt_sub_props = self._definitions['mqtt-sub-prop']
-            self._mqttClient.message_callback_add(mqtt_sub_props, self.mqttOnMessageFromProps)
+            self._mqttClient.message_callback_add(mqtt_sub_props, self._mqttOnMessageFromProps)
         except Exception as e:
             self._logger.error(self.tr("Plugin sub topic definition is missing"))
             self._logger.debug(e)
 
         # on_message default callback
-        self._mqttClient.on_message = self.mqttOnMessage
+        self._mqttClient.on_message = self._mqttOnMessage
 
         self._PluginDialog = PluginDialog(self.tr("Plugin"), './room.png', self._logger)
         self._PluginDialog.aboutToClose.connect(self.exitOnClose)
@@ -45,7 +45,7 @@ class PluginApplet(MqttApplet):
         self.quit()
 
     # __________________________________________________________________
-    def mqttOnMessage(self, client, userdata, msg):
+    def _mqttOnMessage(self, client, userdata, msg):
         message = None
         try:
             message = msg.payload.decode(encoding="utf-8", errors="strict")
@@ -59,7 +59,7 @@ class PluginApplet(MqttApplet):
             self._logger.warning("{0} {1}".format(self.tr("MQTT message decoding failed on"), msg.topic))
 
     # __________________________________________________________________
-    def mqttOnMessageFromProps(self, client, userdata, msg):
+    def _mqttOnMessageFromProps(self, client, userdata, msg):
         message = None
         try:
             message = msg.payload.decode(encoding="utf-8", errors="strict")
