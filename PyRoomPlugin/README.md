@@ -1,7 +1,5 @@
-﻿# PySkeletonPlugin
- ***Plugin to quickly create a plugin for xcape.io Room.***
-
-<img src="../work-in-progress.png" alt="Work in progress" height="75" width="75" align="middle"> Work in progress...
+﻿# PyRoomPlugin
+ ***PyQt5 applet to quickly create a plugin for <a href="https://xcape.io/" target="_blank">xcape.io</a> Room.***
 
 In the area of ​​Escape Room creation, we need to code quickly and reliably, and we need to streamline and reuse our code.
 
@@ -14,22 +12,15 @@ To write your very first **Room** plugin, we recommend you follow the
  
 ## Installation
 
-# !!! First install Python 3.8.x in C:\Python38 (use install.bat to create venv)
+1. First install Python 3.8.x in C:\Python38 ([Windows x86-64 executable installer](https://www.python.org/ftp/python/3.8.2/python-3.8.2-amd64.exe) from <a href="https://www.python.org/downloads/release/python-382/" target="_blank">python.org</a>)
 
-Create your new plugin folder in you room *Plugins* folder, example for a plugin we want named as **Echo** :
+2. Download [`PluginInstallation.zip`](https://github.com/xcape-io/PyPropControl/raw/master/PyRoomPlugin/PluginInstallation.zip) from this GitHub repository 
 
-```bash
-C:\Users\jm_de\Documents\Xcape\Room\My room\Room\Plugins\PyEchoPlugin
+3. Unflate it in your plugin folder
 
-```
+4. Run `install.bat` with a double-click to create the Python virtual environment (*venv*).
 
-Download `PySkeletonPlugin-master.zip` from this GitHub repository and unflate it in your plugin folder (not in `PySkeletonPlugin-master` folder).
-
-![](screenshots/shot1.png)
-
-Run `install.bat` with a double-click to create the Python virtual environment (*venv*).
-
-Run `test.bat` to test you new **Echo** plugin.
+5. Run `test.bat` to test your new plugin.
 
 You are now ready to hack a new plugin :
 * add it to ***Room*** software (<a href="https://xcape.io/public/documentation/en/room/AddEchoPlugintoyourroom.html" target="_blank">see ***Room*** manual</a>)
