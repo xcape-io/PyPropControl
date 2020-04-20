@@ -31,7 +31,7 @@ class DataWidget(QWidget):
             self._dataLabel.setFixedWidth(label_width)
 
         self._dataValue = QLabel()
-        self._dataValue.setAlignment(Qt.AlignLeft | Qt.AlignVCenter)
+        self._dataValue.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
 
         main_layout = QHBoxLayout()
         main_layout.setContentsMargins(0, 0, 0, 0)

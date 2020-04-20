@@ -95,8 +95,16 @@ class PanelDialog(AppletDialog):
         dataLed_options['image_on'] = DATALED_IMAGE_ON
         dataLed_options['image_off'] = DATALED_IMAGE_OFF
 
-        self._dataLed = DataWidget(self.tr("Led"), 'led', options=dataLed_options, label_width=LABELS_WIDTH)
+        self._dataLed = DataWidget(self.tr("Led"), 'led', options=dataLed_options)
         box_layout.addWidget(self._dataLed)
+
+        self._dataLedText = DataWidget(self.tr("Led (value)"), 'led')
+        box_layout.addWidget(self._dataLedText)
+
+        ##self._blinkSwitch = SwitchWidget()
+        ##self._blinkOnButton = PushButton()
+        ##self._blinkOffButton = PushButton()
+        ##self._blinkToggleButton = ToggleButton()
 
         main_layout.addStretch(0)
 
@@ -105,6 +113,7 @@ class PanelDialog(AppletDialog):
         self.switchLed.connect(self._led.switchOn)
 
         self.propDataReveived.connect(self._dataLed.onDataReceived)
+        self.propDataReveived.connect(self._dataLedText.onDataReceived)
 
     # __________________________________________________________________
     def _parsePropData(self, message):
