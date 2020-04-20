@@ -41,16 +41,18 @@ class ToggleButton(QWidget):
     # __________________________________________________________________
     @pyqtSlot(dict)
     def onDataReceived(self, variables):
-        '''
-        if self._image:
-            if variables[self._variable] == self._value_on:
-                self._dataValue.setPixmap(self._image_on.pixmap(QSize(20, 20)))
+
+        if self._variable in variables:
+            if variables[self._variable] == self._sync_on:
+                self._pushButton.setText(self._caption_on)
             else:
-                self._dataValue.setPixmap(self._image_off.pixmap(QSize(20, 20)))
-        elif self._variable in variables:
-            self._dataValue.setText(variables[self._variable])
-        '''
+                self._pushButton.setText(self._caption_off)
+
     # __________________________________________________________________
     @pyqtSlot()
     def onPushButton(self):
-        self.publishMessage.emit(self._topic, self._action_on)
+
+        if self._pushButton.text() == self._caption_on:
+            self.publishMessage.emit(self._topic, self._action_on)
+        else:
+            self.publishMessage.emit(self._topic, self._action_off)

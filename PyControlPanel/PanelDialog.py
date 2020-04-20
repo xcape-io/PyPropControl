@@ -121,9 +121,9 @@ class PanelDialog(AppletDialog):
 
         self._blinkToggleButton = ToggleButton(caption_on=self.tr("Start blinking"),
                                                caption_off=self.tr("Stop blinking"),
-                                               variable='blinking',
-                                               sync_on='yes',
-                                               sync_off='no',
+                                               variable='blink',
+                                               sync_on='no',
+                                               sync_off='yes',
                                                action_on='blink:1',
                                                action_off='blink:0',
                                                topic=self._propInbox)
@@ -140,6 +140,7 @@ class PanelDialog(AppletDialog):
         self.propDataReveived.connect(self._blinkToggleButton.onDataReceived)
         self._blinkOnButton.publishMessage.connect(self.publishMessage)
         self._blinkOffButton.publishMessage.connect(self.publishMessage)
+        self._blinkToggleButton.publishMessage.connect(self.publishMessage)
 
     # __________________________________________________________________
     def _parsePropData(self, message):

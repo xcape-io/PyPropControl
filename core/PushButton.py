@@ -35,4 +35,5 @@ class PushButton(QWidget):
     # __________________________________________________________________
     @pyqtSlot()
     def onPushButton(self):
+
         self.publishMessage.emit(self._topic, self._action)

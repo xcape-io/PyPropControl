@@ -51,10 +51,11 @@ class SwitchWidget(QWidget):
     @pyqtSlot(dict)
     def onDataReceived(self, variables):
 
-        if self._image:
-            if variables[self._variable] == self._value_on:
-                self._dataValue.setPixmap(self._image_on.pixmap(QSize(20, 20)))
+        if self._variable in variables:
+            if self._image:
+                if variables[self._variable] == self._value_on:
+                    self._dataValue.setPixmap(self._image_on.pixmap(QSize(20, 20)))
+                else:
+                    self._dataValue.setPixmap(self._image_off.pixmap(QSize(20, 20)))
             else:
-                self._dataValue.setPixmap(self._image_off.pixmap(QSize(20, 20)))
-        elif self._variable in variables:
-            self._dataValue.setText(variables[self._variable])
+                self._dataValue.setText(variables[self._variable])
