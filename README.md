@@ -7,6 +7,7 @@
 
 <a href="https://www.learnpyqt.com/" target="_blank">PyQt5</a> has its own event loop to multitask seamlessly and it brings the power of <a href="https://doc.qt.io/" target="_blank">Qt</a> to Python.
 
+<a href="https://www.jetbrains.com/pycharm/download/" target="_blank">Pycharm Community</a> is the free python IDE recommenbded for developing your own plugin or control panel.
 
 ## Installation
 You will find installation instructions in [INSTALLATION.md](INSTALLATION.md)
