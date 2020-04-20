@@ -82,7 +82,7 @@ class PanelDialog(AppletDialog):
         box_layout.setSpacing(12)
         main_layout.addWidget(box)
 
-        self._dataLed = DataWidget(self.tr("Led"), 'led', LABELS_WIDTH)
+        self._dataLed = DataWidget(self.tr("Led"), 'led', label_width=LABELS_WIDTH)
         box_layout.addWidget(self._dataLed)
 
 

@@ -14,7 +14,7 @@ from PyQt5.QtCore import Qt, pyqtSlot
 class DataWidget(QWidget):
 
     # __________________________________________________________________
-    def __init__(self, label, variable, label_width):
+    def __init__(self, label, variable, options={}, label_width=0):
         super(DataWidget, self).__init__()
 
         self._variable = variable
