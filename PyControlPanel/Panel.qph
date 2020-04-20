@@ -165,8 +165,8 @@
     <target>Message de la props Teletext impossible à décoder pour</target>
 </phrase>
 <phrase>
-    <source>TeletextPlugin inbox is not defined, message ignored</source>
-    <target>TeletextPlugin inbox n&apos;est pas définie, message ignoré</target>
+    <source>TeletextPanel inbox is not defined, message ignored</source>
+    <target>TeletextPanel inbox n&apos;est pas définie, message ignoré</target>
 </phrase>
 <phrase>
     <source>Display sub topic definition is missing</source>

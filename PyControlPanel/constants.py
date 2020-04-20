@@ -22,7 +22,7 @@ MQTT_DEFAULT_PORT = 1883
 MQTT_DEFAULT_QoS = 1
 
 # __________________________________________________________________
-# Required by PluginApplet
+# Required by PanelApplet
 APPDISPLAYNAME = "Room"  # the Room Control application
 
 # __________________________________________________________________

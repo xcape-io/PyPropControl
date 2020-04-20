@@ -1,19 +1,19 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-PluginApplet.py
+PanelApplet.py
 MIT License (c) Marie Faure <dev at faure dot systems>
 
-PluginApplet application extends MqttApplet.
+PanelApplet application extends MqttApplet.
 """
 
 from constants import *
 from MqttApplet import MqttApplet
-from PluginDialog import PluginDialog
+from PanelDialog import PanelDialog
 from PyQt5.QtCore import pyqtSignal, pyqtSlot
 
 
-class PluginApplet(MqttApplet):
+class PanelApplet(MqttApplet):
 
     # __________________________________________________________________
     def __init__(self, argv, client, debugging_mqtt=False):
@@ -21,16 +21,16 @@ class PluginApplet(MqttApplet):
 
         self.setApplicationDisplayName(APPDISPLAYNAME)
 
-        self._PluginDialog = PluginDialog(self.tr("Plugin"), './room.png',
+        self._PanelDialog = PanelDialog(self.tr("Panel"), './mqtticon.png',
                                           self._definitions['mqtt-sub-prop'], self._logger)
-        self._PluginDialog.aboutToClose.connect(self.exitOnClose)
-        self._PluginDialog.publishMessage.connect(self.publishMessage)
+        self._PanelDialog.aboutToClose.connect(self.exitOnClose)
+        self._PanelDialog.publishMessage.connect(self.publishMessage)
 
-        self.connectedToMqttBroker.connect(self._PluginDialog.onConnectedToMqttBroker)
-        self.disconnectedToMqttBroker.connect(self._PluginDialog.onDisconnectedToMqttBroker)
-        self.messageReceived.connect(self._PluginDialog.onMessageReceived)
+        self.connectedToMqttBroker.connect(self._PanelDialog.onConnectedToMqttBroker)
+        self.disconnectedToMqttBroker.connect(self._PanelDialog.onDisconnectedToMqttBroker)
+        self.messageReceived.connect(self._PanelDialog.onMessageReceived)
 
-        self._PluginDialog.show()
+        self._PanelDialog.show()
 
     # __________________________________________________________________
     @pyqtSlot()

@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-PluginDialog.py
+PanelDialog.py
 MIT License (c) Marie Faure <dev at faure dot systems>
 
-Dialog to control PluginProps app running on Raspberry.
+Dialog to control PanelProps app running on Raspberry.
 """
 
 import os
@@ -13,7 +13,7 @@ import configparser
 import re
 
 from constants import *
-from PluginSettingsDialog import PluginSettingsDialog
+from PanelSettingsDialog import PanelSettingsDialog
 from AppletDialog import AppletDialog
 from DataWidget import DataWidget
 from LedWidget import LedWidget
@@ -23,7 +23,7 @@ from PyQt5.QtCore import Qt, pyqtSignal, pyqtSlot, QSize, QPoint
 from PyQt5.QtWidgets import QHBoxLayout, QVBoxLayout, QPushButton
 
 
-class PluginDialog(AppletDialog):
+class PanelDialog(AppletDialog):
     aboutToClose = pyqtSignal()
     propDataReveived = pyqtSignal(dict)
     publishMessage = pyqtSignal(str, str)
@@ -145,7 +145,7 @@ class PluginDialog(AppletDialog):
     @pyqtSlot()
     def onSettingsButton(self):
 
-        dlg = PluginSettingsDialog(self._settings, self._logger)
+        dlg = PanelSettingsDialog(self._settings, self._logger)
         dlg.setModal(True)
         dlg.move(self.pos() + QPoint(20, 20))
         dlg.exec()

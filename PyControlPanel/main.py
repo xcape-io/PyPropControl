@@ -37,7 +37,7 @@ else:
 
 from PyQt5.QtGui import QIcon
 
-from PluginApplet import PluginApplet
+from PanelApplet import PanelApplet
 from Singleton import Singleton, SingletonException
 
 
@@ -51,7 +51,7 @@ except BaseException as e:
 
 mqtt_client = mqtt.Client(uuid.uuid4().urn, clean_session=True, userdata=None)
 
-applet = PluginApplet(sys.argv,  mqtt_client,  debugging_mqtt=True)
+applet = PanelApplet(sys.argv,  mqtt_client,  debugging_mqtt=True)
 
 applet.setApplicationDisplayName("Room")
 applet.setWindowIcon(QIcon('./room.png'));

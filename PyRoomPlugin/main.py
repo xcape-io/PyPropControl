@@ -54,7 +54,7 @@ mqtt_client = mqtt.Client(uuid.uuid4().urn, clean_session=True, userdata=None)
 applet = PluginApplet(sys.argv,  mqtt_client,  debugging_mqtt=True)
 
 applet.setApplicationDisplayName("Room")
-applet.setWindowIcon(QIcon('./room.png'));
+applet.setWindowIcon(QIcon('./mqtticon.png'));
 
 if applet.logger:
 	applet.logger.info(applet.tr("Session started"))

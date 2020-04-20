@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-PluginSettingsDialog.py
+PanelSettingsDialog.py
 MIT License (c) Marie Faure <dev at faure dot systems>
 
 Dialog to configure plugin parameters.
@@ -17,12 +17,12 @@ from PyQt5.QtWidgets import QDialog, QRadioButton, QPushButton, QGroupBox
 from PyQt5.QtGui import QIcon
 
 
-class PluginSettingsDialog(QDialog):
+class PanelSettingsDialog(QDialog):
 
     # __________________________________________________________________
     def __init__(self, settings, logger):
 
-        super(PluginSettingsDialog, self).__init__()
+        super(PanelSettingsDialog, self).__init__()
 
         self._logger = logger
         self._settings = settings
