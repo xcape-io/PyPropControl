@@ -35,11 +35,11 @@ From this control panel skeleton you can write a prop control panel in minutes.
 #### Example of installation on Ubuntu/Debian based distros
 You will have to install following Python packages:
 ```bash
-$ sudo apt update
-$ sudo apt install python3-pip
+$ sudo apt-get update
+$ sudo apt-get install python3-pip
 $ pip3 install --user pyqt5
-$ sudo apt install python3-pyqt5
-$ sudo apt install qt5-default pyqt5-dev pyqt5-dev-tools
+$ sudo apt-get install python3-pyqt5
+$ sudo apt-get install qt5-default pyqt5-dev pyqt5-dev-tools
 ```
 
 Then:
