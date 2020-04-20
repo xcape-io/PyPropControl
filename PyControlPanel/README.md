@@ -19,7 +19,13 @@ From this control panel skeleton you can write a prop control panel in minutes.
 
 4. Run `install.bat` with a double-click to create the Python virtual environment (*venv*).
 
-5. Run `test.bat` to test your new panel.
+5. Set MQTT broker IP address in `constants.py`
+
+    ```python
+    MQTT_DEFAULT_HOST = 'localhost'  # replace localhost with your broker IP address
+    ```
+
+6. Run `test.bat` to test your new panel.
 
 
 ## Creating your own control panel

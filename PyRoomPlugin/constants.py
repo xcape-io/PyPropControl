@@ -17,7 +17,7 @@ APPLICATION = "Room"
 
 PYPROPS_CORELIBPATH = '../core' # however ./core is preferred if present
 
-MQTT_DEFAULT_HOST = 'localhost'
+MQTT_DEFAULT_HOST = 'localhost'  # replace localhost with your broker IP address
 MQTT_DEFAULT_PORT = 1883
 MQTT_DEFAULT_QoS = 1
 

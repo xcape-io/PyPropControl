@@ -20,7 +20,13 @@ To write your very first **Room** plugin, we recommend you follow the
 
 4. Run `install.bat` with a double-click to create the Python virtual environment (*venv*).
 
-5. Run `test.bat` to test your new plugin.
+5. Set MQTT broker IP address in `constants.py`
+
+    ```python
+    MQTT_DEFAULT_HOST = 'localhost'  # replace localhost with your broker IP address
+    ```
+
+6. Run `test.bat` to test your new panel.
 
 You are now ready to hack a new plugin :
 * add it to ***Room*** software (<a href="https://xcape.io/public/documentation/en/room/AddEchoPlugintoyourroom.html" target="_blank">see ***Room*** manual</a>)
