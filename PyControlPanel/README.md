@@ -29,14 +29,22 @@ From this control panel skeleton you can write a prop control panel in minutes.
 
 2. Edit `constants.py` to set your prop name and other constants specific to your application
 
-3. Edit `PluginDialog.py` to develop your own prop control panel
+3. Edit `PanelDialog.py` to develop your own prop control panel
 
 In `./core` folder you will find the most useful widgets for building a control panel:
 
-* <a href="https://github.com/xcape-io/PyPropControl/blob/master/core/DataWidget.py" target="_blank">DataWidget</a>
-* PushButton
-* SwitchWidget
-* <a href="https://github.com/xcape-io/PyPropControl/blob/master/core/ToggleButton.py" target="_blank">ToggleButton</a>
+* **<a href="https://github.com/xcape-io/PyPropControl/blob/master/core/DataWidget.py" target="_blank">DataWidget</a>**
+* **PushButton**
+* **SwitchWidget**
+* **<a href="https://github.com/xcape-io/PyPropControl/blob/master/core/ToggleButton.py" target="_blank">ToggleButton</a>**
+
+For this example, we built a plugin to control an Arduino Yún running the **BlinkOnBridgeProp** sketch <a href="https://github.com/xcape-io/ArduinoProps/tree/master/examples" target="_blank">example</a> from the <a href="https://github.com/xcape-io/ArduinoProps" target="_blank">ArduinoProps library</a>.
+
+Alternatively it works the same with:
+* **BlinkOnEthernetProp**
+* **BlinkOnWifiProp**
+* **BlinkOnBridgePubSub**
+
 
 ## Author
 
