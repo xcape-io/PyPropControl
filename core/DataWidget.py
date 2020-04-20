@@ -14,12 +14,12 @@ from PyQt5.QtGui import QIcon
 class DataWidget(QWidget):
 
     # __________________________________________________________________
-    def __init__(self, label, variable, options={}, label_width=0):
+    def __init__(self, label, variable, image_on=None, image_off=None, label_width=0):
         super(DataWidget, self).__init__()
 
         self._variable = variable
-        self._image_on = None
-        self._image_off = None
+        self._image_on = QIcon(image_on)
+        self._image_off = QIcon(image_off)
         self._image = False
         self._value_on = '1'
         self._value_off = '0'
@@ -41,9 +41,7 @@ class DataWidget(QWidget):
 
         self.setLayout(main_layout)
 
-        if 'image_on' in options and 'image_off' in options:
-            self._image_on = QIcon(options['image_on'])
-            self._image_off = QIcon(options['image_off'])
+        if 'image_on' is not None and 'image_off' is not None:
             self._image = True
             self._dataValue.setPixmap(self._image_off.pixmap(QSize(20, 20)))
 

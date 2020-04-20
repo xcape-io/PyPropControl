@@ -18,6 +18,7 @@ from AppletDialog import AppletDialog
 from DataWidget import DataWidget
 from LedWidget import LedWidget
 from PushButton import PushButton
+from SwitchWidget import SwitchWidget
 from ToggleButton import ToggleButton
 
 from PyQt5.QtGui import QIcon
@@ -97,17 +98,17 @@ class PanelDialog(AppletDialog):
         box_layout.setSpacing(12)
         main_layout.addWidget(box)
 
-        dataLed_options = {}
-        dataLed_options['image_on'] = DATALED_IMAGE_ON
-        dataLed_options['image_off'] = DATALED_IMAGE_OFF
-
-        self._dataLed = DataWidget(self.tr("Led"), 'led', options=dataLed_options)
+        self._dataLed = DataWidget(label=self.tr("Led (value)"),
+                                   variable='led',
+                                   image_on=DATALED_IMAGE_ON,
+                                   image_off=DATALED_IMAGE_OFF)
         box_layout.addWidget(self._dataLed)
 
-        self._dataLedText = DataWidget(self.tr("Led (value)"), 'led')
+        self._dataLedText = DataWidget(label=self.tr("Led (value)"),
+                                       variable='led')
         box_layout.addWidget(self._dataLedText)
 
-        ##self._blinkSwitch = SwitchWidget()
+        #self._blinkSwitch = SwitchWidget()
 
         box_layout.addWidget(QLabel("<hr>"))
 
