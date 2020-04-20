@@ -33,3 +33,6 @@ LABELS_WIDTH = 50
 # __________________________________________________________________
 # Required by the application
 PROP_NAME = 'Arduino Blink'
+
+DATALED_IMAGE_ON = './images/'
+DATALED_IMAGE_OFF = ''

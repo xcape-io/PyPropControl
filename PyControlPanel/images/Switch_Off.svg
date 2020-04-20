@@ -1,0 +1,32 @@
+<svg width="160" height="90" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient id="linearGradient3815">
+   <stop stop-color="#ffffff" offset="0" id="stop3817"/>
+   <stop stop-color="#c2c2c2" offset="1" id="stop3819"/>
+  </linearGradient>
+  <linearGradient x1="0.2873" y1="0.706388" x2="1.213987" y2="-0.196393" id="linearGradient4120">
+   <stop stop-color="#e9e9e9" offset="0" id="stop4138"/>
+   <stop stop-color="#afafaf" offset="1" id="stop4140"/>
+  </linearGradient>
+  <linearGradient x1="0.977293" y1="0.506132" x2="0.074609" y2="0.506132" id="linearGradient4122">
+   <stop stop-color="#c2c2c2" offset="0" id="stop3887"/>
+   <stop stop-color="#f1f1f1" stop-opacity="0" offset="1" id="stop3889"/>
+  </linearGradient>
+  <linearGradient y2="0.931629" x2="-0.252828" y1="0.554112" x1="0.435948" id="svg_1" xlink:href="#linearGradient3815"/>
+ </defs>
+ <metadata id="metadata30">image/svg+xmlOpenclipart</metadata>
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="92" width="162" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g id="layer1">
+   <g id="g4209">
+    <path fill="url(#linearGradient4120)" stroke="url(#linearGradient4122)" stroke-linecap="round" stroke-linejoin="round" d="m116.468498,3.577999c22.88,0 41.438,18.526 41.438,41.406c0,22.88 -18.557,41.438 -41.438,41.438l-72.969,0c-22.88,0 -41.406,-18.557 -41.406,-41.438c0,-22.88 18.526,-41.406 41.406,-41.406l72.969,0z" id="path3841"/>
+    <path opacity="0.56989" fill="none" stroke="#666666" stroke-width="1.0455" d="m4.658961,45.209471c0,21.884836 17.741168,39.626013 39.626013,39.626013c21.884845,0 39.626013,-17.741177 39.626013,-39.626013c0,-21.884845 -17.741168,-39.626013 -39.626013,-39.626013c-21.884845,0 -39.626013,17.741168 -39.626013,39.626013z" id="path3843"/>
+    <path fill="url(#svg_1)" d="m3.898961,45.009471c0,21.884836 17.741168,39.626013 39.626013,39.626013c21.884845,0 39.626013,-17.741177 39.626013,-39.626013c0,-21.884845 -17.741168,-39.626013 -39.626013,-39.626013c-21.884845,0 -39.626013,17.741168 -39.626013,39.626013z" id="path3845"/>
+   </g>
+  </g>
+ </g>
+</svg>

@@ -1,0 +1,256 @@
+<?xml version="1.0"?>
+<svg
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:cc="http://web.resource.org/cc/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+    xmlns:ns1="http://sozi.baierouge.fr"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 0 50 50"
+  >
+  <defs
+    >
+    <linearGradient
+        id="border-outer-fill"
+        y2="44"
+        gradientUnits="userSpaceOnUse"
+        y1="42.42"
+        x2="23.2"
+        x1="23.19"
+      >
+      <stop
+          stop-color="#adadad"
+          offset="0"
+      />
+      <stop
+          stop-color="#f0f0f0"
+          offset="1"
+      />
+    </linearGradient
+    >
+    <linearGradient
+        id="border-inner-fill"
+        y2="43.71"
+        gradientUnits="userSpaceOnUse"
+        y1="42.76"
+        x2="23.44"
+        x1="23.35"
+      >
+      <stop
+          stop-color="#828282"
+          offset="0"
+      />
+      <stop
+          stop-color="#929292"
+          stop-opacity=".35"
+          offset="1"
+      />
+    </linearGradient
+    >
+    <linearGradient
+        id="color-fill"
+        y2="43.89"
+        gradientUnits="userSpaceOnUse"
+        y1="42.75"
+        x2="23.2"
+        x1="23.21"
+      >
+      <stop
+          stop-color="#828282"
+          offset="0"
+      />
+      <stop
+          stop-color="#929292"
+          offset="1"
+      />
+    </linearGradient
+    >
+    <linearGradient
+        id="gloss-fill"
+        y2="42.88"
+        gradientUnits="userSpaceOnUse"
+        y1="44.06"
+        x2="23.39"
+        x1="23.4"
+      >
+      <stop
+          stop-color="#fff"
+          stop-opacity="0"
+          offset="0"
+      />
+      <stop
+          stop-color="#fff"
+          stop-opacity=".87"
+          offset="1"
+      />
+    </linearGradient
+    >
+  </defs
+  >
+  <g
+      transform="matrix(31.25 0 0 31.25 -625.02 -1325)"
+    >
+    <path
+        id="border-outer"
+        transform="translate(-2.3992 -.000001)"
+        fill="url(#border-outer-fill)"
+        d="m24 43.2c0 0.442-0.358 0.8-0.8 0.8s-0.8-0.358-0.8-0.8 0.358-0.8 0.8-0.8 0.8 0.358 0.8 0.8z"
+    />
+    <path
+        id="border-inner"
+        transform="matrix(1.0824 0 0 1.0824 -4.4316 -3.667)"
+        fill="url(#border-inner-fill)"
+        d="m23.906 43.296c0 0.329-0.267 0.597-0.596 0.597s-0.596-0.268-0.596-0.597 0.267-0.596 0.596-0.596 0.596 0.267 0.596 0.596z"
+    />
+    <path
+        id="color"
+        transform="matrix(.9690 0 0 .9690 -1.7882 1.2428)"
+        fill="url(#color-fill)"
+        d="m23.906 43.296c0 0.329-0.267 0.597-0.596 0.597s-0.596-0.268-0.596-0.597 0.267-0.596 0.596-0.596 0.596 0.267 0.596 0.596z"
+    />
+    <path
+        id="gloss"
+        transform="matrix(.7731 0 0 .5979 2.7768 17.119)"
+        fill="url(#gloss-fill)"
+        d="m23.906 43.296c0 0.329-0.267 0.597-0.596 0.597s-0.596-0.268-0.596-0.597 0.267-0.596 0.596-0.596 0.596 0.267 0.596 0.596z"
+    />
+  </g
+  >
+  <script
+    >var gradients = {
+      black: ['#000', '8c8c8c'],
+      blue: ['#09f', '#09f'],
+      green: ['#0a0', '#0f0'],
+      grey: ['#828282', '#929292'],
+      orange: ['#a60', '#fa0'],
+      red: ['#a00', '#f00'],
+      white: ['#adadad', '#f0f0f0'],
+      yellow: ['#aa0', '#ff0']
+    };
+    var color = window.location.search.match(/color=([a-z]+)/)[1] || 'grey';
+    var gradient = gradients[color] || gradients.grey;
+    var stops = document.getElementById('color-fill').getElementsByTagName('stop');
+    for (var i = 0, l = stops.length; i &lt; l; ++i)
+    {
+      stops[i].setAttribute('stop-color', gradient[i]);
+    }</script
+  >
+  <metadata
+    >
+    <rdf:RDF
+      >
+      <cc:Work
+        >
+        <dc:format
+          >image/svg+xml</dc:format
+        >
+        <dc:type
+            rdf:resource="http://purl.org/dc/dcmitype/StillImage"
+        />
+        <cc:license
+            rdf:resource="http://creativecommons.org/licenses/publicdomain/"
+        />
+        <dc:publisher
+          >
+          <cc:Agent
+              rdf:about="http://openclipart.org/"
+            >
+            <dc:title
+              >Openclipart</dc:title
+            >
+          </cc:Agent
+          >
+        </dc:publisher
+        >
+        <dc:title
+          >Generic round LED</dc:title
+        >
+        <dc:date
+          >2013-09-20T23:00:12</dc:date
+        >
+        <dc:description
+          >Grey glossy circle by Jean-Victor Balin. From OCAl 0.18 release. Optimized for use on a web page. Append ?color=$color to the URL for different colors (where $color is one of: black, blue, green, grey, orange, red, white, yellow).</dc:description
+        >
+        <dc:source
+          >https://openclipart.org/detail/183616/generic-round-led-by-morkaitehred-183616</dc:source
+        >
+        <dc:creator
+          >
+          <cc:Agent
+            >
+            <dc:title
+              >morkaitehred</dc:title
+            >
+          </cc:Agent
+          >
+        </dc:creator
+        >
+        <dc:subject
+          >
+          <rdf:Bag
+            >
+            <rdf:li
+              >black</rdf:li
+            >
+            <rdf:li
+              >blue</rdf:li
+            >
+            <rdf:li
+              >circle</rdf:li
+            >
+            <rdf:li
+              >glossy</rdf:li
+            >
+            <rdf:li
+              >green</rdf:li
+            >
+            <rdf:li
+              >grey</rdf:li
+            >
+            <rdf:li
+              >led</rdf:li
+            >
+            <rdf:li
+              >orange</rdf:li
+            >
+            <rdf:li
+              >red</rdf:li
+            >
+            <rdf:li
+              >round</rdf:li
+            >
+            <rdf:li
+              >white</rdf:li
+            >
+            <rdf:li
+              >yellow</rdf:li
+            >
+          </rdf:Bag
+          >
+        </dc:subject
+        >
+      </cc:Work
+      >
+      <cc:License
+          rdf:about="http://creativecommons.org/licenses/publicdomain/"
+        >
+        <cc:permits
+            rdf:resource="http://creativecommons.org/ns#Reproduction"
+        />
+        <cc:permits
+            rdf:resource="http://creativecommons.org/ns#Distribution"
+        />
+        <cc:permits
+            rdf:resource="http://creativecommons.org/ns#DerivativeWorks"
+        />
+      </cc:License
+      >
+    </rdf:RDF
+    >
+  </metadata
+  >
+</svg
+>
