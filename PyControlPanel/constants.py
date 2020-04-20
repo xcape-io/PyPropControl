@@ -13,7 +13,7 @@ ORGANIZATIONNAME = "xcape.io"
 
 CONFIG_FILE = '.config.yml'
 
-APPLICATION = "Room"
+APPLICATION = "Control Panel"
 
 PYPROPS_CORELIBPATH = '../core' # however ./core is preferred
 
@@ -23,7 +23,7 @@ MQTT_DEFAULT_QoS = 1
 
 # __________________________________________________________________
 # Required by PanelApplet
-APPDISPLAYNAME = "Room"  # the Room Control application
+APPDISPLAYNAME = APPLICATION
 
 # __________________________________________________________________
 # Required by the widgets
