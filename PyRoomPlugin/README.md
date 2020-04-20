@@ -1,5 +1,5 @@
 ﻿# PyRoomPlugin
- ***PyQt5 applet to quickly create a plugin for <a href="https://xcape.io/" target="_blank">xcape.io</a> Room.***
+*<a href="https://www.learnpyqt.com/" target="_blank">PyQt5</a> applet to quickly create a plugin for <a href="https://xcape.io/" target="_blank">xcape.io</a> Room.*
 
 In the area of ​​Escape Room creation, we need to code quickly and reliably, and we need to streamline and reuse our code.
 
