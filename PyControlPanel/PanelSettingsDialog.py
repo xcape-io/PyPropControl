@@ -4,7 +4,7 @@
 PanelSettingsDialog.py
 MIT License (c) Marie Faure <dev at faure dot systems>
 
-Dialog to configure plugin parameters.
+Dialog to configure panel parameters.
 """
 
 import os

@@ -3,7 +3,7 @@
 """
 constants.py
 
-Contains all the Room Control applet constants.
+Contains all the Control Panel applet constants.
 """
 
 # __________________________________________________________________

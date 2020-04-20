@@ -4,7 +4,7 @@
 main.py
 MIT License (c) Marie Faure <dev at faure dot systems>
 
-Room (xcape.io) plugin.
+MQTT control panel.
 
 usage: python main.py [-h] [-s SERVER] [-p PORT] [-d] [-l LOGGER]
 
