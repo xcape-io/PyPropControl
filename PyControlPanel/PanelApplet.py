@@ -21,7 +21,7 @@ class PanelApplet(MqttApplet):
 
         self.setApplicationDisplayName(APPDISPLAYNAME)
 
-        self._PanelDialog = PanelDialog(self.tr("Panel"), './mqtticon.png',
+        self._PanelDialog = PanelDialog(self.tr("Example"), './mqtticon.png',
                                           self._definitions['mqtt-sub-prop'], self._logger)
         self._PanelDialog.aboutToClose.connect(self.exitOnClose)
         self._PanelDialog.publishMessage.connect(self.publishMessage)

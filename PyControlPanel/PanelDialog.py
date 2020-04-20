@@ -20,7 +20,7 @@ from LedWidget import LedWidget
 
 from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import Qt, pyqtSignal, pyqtSlot, QSize, QPoint
-from PyQt5.QtWidgets import QHBoxLayout, QVBoxLayout, QPushButton
+from PyQt5.QtWidgets import QHBoxLayout, QVBoxLayout, QPushButton, QGroupBox
 
 
 class PanelDialog(AppletDialog):
@@ -77,9 +77,13 @@ class PanelDialog(AppletDialog):
         header_layout.addWidget(settings_button, Qt.AlignRight)
         main_layout.addLayout(header_layout)
 
+        box = QGroupBox(self.tr(""))
+        box_layout = QVBoxLayout(box)
+        box_layout.setSpacing(12)
+        main_layout.addWidget(box)
 
         self._dataLed = DataWidget(self.tr("Led"), 'led', LABELS_WIDTH)
-        main_layout.addWidget(self._dataLed)
+        box_layout.addWidget(self._dataLed)
 
 
         main_layout.addStretch(0)
