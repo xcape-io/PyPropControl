@@ -15,7 +15,7 @@ CONFIG_FILE = '.config.yml'
 
 APPLICATION = "Control Panel"
 
-PYPROPS_CORELIBPATH = '../core' # however ./core is preferred
+PYPROPS_CORELIBPATH = '../core' # however ./core is preferred if present
 
 MQTT_DEFAULT_HOST = 'localhost'
 MQTT_DEFAULT_PORT = 1883
