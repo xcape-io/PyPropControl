@@ -8,13 +8,14 @@ Prop switch widget.
 """
 
 from PyQt5.QtWidgets import QWidget, QLabel, QHBoxLayout, QSizePolicy
-from PyQt5.QtCore import Qt, pyqtSlot, QSize
+from PyQt5.QtCore import Qt, pyqtSignal, pyqtSlot, QSize
 from PyQt5.QtGui import QIcon
 
 import os
 
 
 class SwitchWidget(QWidget):
+    publishMessage = pyqtSignal(str, str)
 
     # __________________________________________________________________
     def __init__(self,
@@ -61,8 +62,6 @@ class SwitchWidget(QWidget):
         self._buttonImage.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
         self._buttonImage.setMouseTracking(True)
 
-        self._buttontoggled = False
-
         main_layout = QHBoxLayout()
         main_layout.setContentsMargins(0, 0, 0, 0)
         main_layout.setSpacing(8)
@@ -77,13 +76,17 @@ class SwitchWidget(QWidget):
 
         self._dataImage.setPixmap(self._image_off.pixmap(QSize(20, 20)))
         self._buttonImage.setPixmap(self._button_off.pixmap(QSize(32, 18)))
+        self._buttontoggled = False
 
     # __________________________________________________________________
     def mousePressEvent(self, event):
 
         self._buttontoggled = not self._buttontoggled
-        print(self._buttontoggled)
-        pass
+
+        if self._buttontoggled:
+            self.publishMessage.emit(self._topic, self._action_on)
+        else:
+            self.publishMessage.emit(self._topic, self._action_off)
 
     # __________________________________________________________________
     @pyqtSlot(dict)
@@ -94,3 +97,11 @@ class SwitchWidget(QWidget):
                 self._dataImage.setPixmap(self._image_on.pixmap(QSize(20, 20)))
             else:
                 self._dataImage.setPixmap(self._image_off.pixmap(QSize(20, 20)))
+
+        if self._sync in variables:
+            if variables[self._sync] == self._sync_on:
+                self._buttonImage.setPixmap(self._button_on.pixmap(QSize(32, 18)))
+                self._buttontoggled = True
+            else:
+                self._buttonImage.setPixmap(self._button_off.pixmap(QSize(32, 18)))
+                self._buttontoggled = False

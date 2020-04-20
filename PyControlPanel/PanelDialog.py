@@ -113,8 +113,8 @@ class PanelDialog(AppletDialog):
                                    image_on=DATALED_IMAGE_ON,
                                    image_off=DATALED_IMAGE_OFF,
                                    sync='blink',
-                                   sync_on='no',
-                                   sync_off='yes',
+                                   sync_on='yes',
+                                   sync_off='no',
                                    action_on='blink:1',
                                    action_off='blink:0',
                                    topic=self._propInbox)
@@ -152,6 +152,7 @@ class PanelDialog(AppletDialog):
         self.propDataReveived.connect(self._blinkToggleButton.onDataReceived)
         self._blinkOnButton.publishMessage.connect(self.publishMessage)
         self._blinkOffButton.publishMessage.connect(self.publishMessage)
+        self._blinkSwitch.publishMessage.connect(self.publishMessage)
         self._blinkToggleButton.publishMessage.connect(self.publishMessage)
 
     # __________________________________________________________________
