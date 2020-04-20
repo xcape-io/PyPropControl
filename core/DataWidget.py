@@ -20,9 +20,14 @@ class DataWidget(QWidget):
         self._variable = variable
         self._value_on = value_on
         self._value_off = value_off
-        self._image_on = QIcon(image_on)
-        self._image_off = QIcon(image_off)
-        self._image = False
+        if image_on is not None and image_off is not None:
+            self._image_on = QIcon(image_on)
+            self._image_off = QIcon(image_off)
+            self._image = True
+        else:
+            self._image_on = None
+            self._image_off = None
+            self._image = False
 
         self._dataLabel = QLabel(label + ' : ')
         self._dataLabel.setAlignment(Qt.AlignLeft | Qt.AlignVCenter)
@@ -41,8 +46,7 @@ class DataWidget(QWidget):
 
         self.setLayout(main_layout)
 
-        if 'image_on' is not None and 'image_off' is not None:
-            self._image = True
+        if self._image:
             self._dataValue.setPixmap(self._image_off.pixmap(QSize(20, 20)))
 
     # __________________________________________________________________

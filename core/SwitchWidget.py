@@ -57,6 +57,7 @@ class SwitchWidget(QWidget):
         self._buttonImage = QLabel()
         self._buttonImage.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         self._buttonImage.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+        self._buttonImage.setMouseTracking(True)
 
         main_layout = QHBoxLayout()
         main_layout.setContentsMargins(0, 0, 0, 0)
