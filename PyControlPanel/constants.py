@@ -34,5 +34,5 @@ LABELS_WIDTH = 50
 # Required by the application
 PROP_NAME = 'Arduino Blink'
 
-DATALED_IMAGE_ON = './images/'
-DATALED_IMAGE_OFF = ''
+DATALED_IMAGE_ON = './images/led-circle-yellow.svg'
+DATALED_IMAGE_OFF = './images/led-circle-grey.svg'

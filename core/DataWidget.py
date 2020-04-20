@@ -45,7 +45,7 @@ class DataWidget(QWidget):
             self._image_on = QIcon(options['image_on'])
             self._image_off = QIcon(options['image_off'])
             self._image = True
-            self._dataLabel.setPixmap(self._image_off.pixmap(QSize(20, 20)))
+            self._dataValue.setPixmap(self._image_off.pixmap(QSize(20, 20)))
 
     # __________________________________________________________________
     @pyqtSlot(dict)
@@ -53,8 +53,8 @@ class DataWidget(QWidget):
 
         if self._image:
             if variables[self._variable] == self._value_on:
-                self._dataLabel.setPixmap(self._image_on.pixmap(QSize(20, 20)))
+                self._dataValue.setPixmap(self._image_on.pixmap(QSize(20, 20)))
             else:
-                self._dataLabel.setPixmap(self._image_off.pixmap(QSize(20, 20)))
+                self._dataValue.setPixmap(self._image_off.pixmap(QSize(20, 20)))
         elif self._variable in variables:
             self._dataValue.setText(variables[self._variable])

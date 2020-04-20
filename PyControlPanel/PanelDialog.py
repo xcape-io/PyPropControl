@@ -83,12 +83,11 @@ class PanelDialog(AppletDialog):
         main_layout.addWidget(box)
 
         dataLed_options = {}
-        dataLed_options['image_on'] =
-        dataLed_options['image_off'] =
+        dataLed_options['image_on'] = DATALED_IMAGE_ON
+        dataLed_options['image_off'] = DATALED_IMAGE_OFF
 
         self._dataLed = DataWidget(self.tr("Led"), 'led', options=dataLed_options, label_width=LABELS_WIDTH)
         box_layout.addWidget(self._dataLed)
-
 
         main_layout.addStretch(0)
 
