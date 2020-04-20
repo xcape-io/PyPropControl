@@ -27,6 +27,23 @@ You are now ready to hack a new plugin :
 * create a new PyCharm project in the plugin folder (<a href="https://xcape.io/public/documentation/en/room/EditEchopluginwithPyCharm.html" target="_blank">see ***Room*** manual</a>)
 
 
+## Creating your own control panel
+<a href="https://www.jetbrains.com/pycharm/download/" target="_blank">Pycharm Community</a> is the free python IDE recommenbded for developing your own plugin.
+
+1. Edit `definitions.ini` to set the MQTT topics for your prop
+
+2. Edit `constants.py` to set your prop name and other constants specific to your plugin
+
+3. Edit `PluginDialog.py` to develop your own plugin
+
+For this example, we built a plugin to control an Arduino Yún running the **BlinkOnBridgeProp** sketch <a href="https://github.com/xcape-io/ArduinoProps/tree/master/examples" target="_blank">example</a> from the <a href="https://github.com/xcape-io/ArduinoProps" target="_blank">ArduinoProps library</a>.
+
+Alternatively it works the same with:
+* **BlinkOnEthernetProp**
+* **BlinkOnWifiProp**
+* **BlinkOnBridgePubSub**
+
+
 ## Author
 
 **Marie FAURE** (Apr 19th, 2020)
