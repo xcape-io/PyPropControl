@@ -3,7 +3,7 @@
 
 In the area of ​​Escape Room creation, we need to code quickly and reliably, and we need to streamline and reuse our code.
 
-With this plugin skeleton you can write a plugin for *<a href="https://xcape.io/" target="_blank">xcape.io</a>* **Room** software in minutes.
+From this plugin skeleton you can write a plugin for *<a href="https://xcape.io/" target="_blank">xcape.io</a>* **Room** software in minutes.
 
 ![](screenshots/shot.png)
  
