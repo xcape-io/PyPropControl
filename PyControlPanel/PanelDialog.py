@@ -65,16 +65,25 @@ class PanelDialog(AppletDialog):
         self._led.setRedAsRed(True)
         self._led.switchOn('gray')
 
-        settings_button = QPushButton()
-        settings_button.setIcon(QIcon("./images/settings.svg"))
-        settings_button.setFlat(True)
-        settings_button.setToolTip(self.tr("Configuration"))
-        settings_button.setIconSize(QSize(16, 16))
-        settings_button.setFixedSize(QSize(24, 24))
+        try:
+            NO_SETTINGS_DIALOG
+            if NO_SETTINGS_DIALOG:
+                settings_button = QPushButton()
+                settings_button.setIcon(QIcon("./images/settings.svg"))
+                settings_button.setFlat(True)
+                settings_button.setToolTip(self.tr("Configuration"))
+                settings_button.setIconSize(QSize(16, 16))
+                settings_button.setFixedSize(QSize(24, 24))
+            else:
+                settings_button = None
+        except:
+            settings_button = None
 
         header_layout = QHBoxLayout()
         header_layout.addWidget(self._led)
-        header_layout.addWidget(settings_button, Qt.AlignRight)
+        if settings_button is not None:
+            header_layout.addWidget(settings_button, Qt.AlignRight)
+            settings_button.pressed.connect(self.onSettingsButton)
         main_layout.addLayout(header_layout)
 
         box = QGroupBox(self.tr(""))
@@ -93,7 +102,6 @@ class PanelDialog(AppletDialog):
 
         self.setLayout(main_layout)
 
-        settings_button.pressed.connect(self.onSettingsButton)
         self.switchLed.connect(self._led.switchOn)
 
         self.propDataReveived.connect(self._dataLed.onDataReceived)
