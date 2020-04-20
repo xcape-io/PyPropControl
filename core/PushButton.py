@@ -4,7 +4,7 @@
 PushButton.py
 MIT License (c) Marie Faure <dev at faure dot systems>
 
-Prop control push buttob.
+Prop control push button.
 """
 
 from PyQt5.QtWidgets import QWidget, QPushButton, QHBoxLayout
