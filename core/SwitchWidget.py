@@ -11,18 +11,38 @@ from PyQt5.QtWidgets import QWidget, QLabel, QHBoxLayout, QSizePolicy
 from PyQt5.QtCore import Qt, pyqtSlot, QSize
 from PyQt5.QtGui import QIcon
 
+import os
+
+
 class SwitchWidget(QWidget):
 
     # __________________________________________________________________
-    def __init__(self, label, variable, options={}, label_width=0):
+    def __init__(self,
+                 label,
+                 variable,
+                 image_on,
+                 image_off,
+                 sync_on, 
+                 sync_off,
+                 action_on,
+                 action_off,
+                 topic,
+                 value_on='1',
+                 value_off='0',
+                 label_width=0):
+
         super(SwitchWidget, self).__init__()
 
         self._variable = variable
-        self._image_on = None
-        self._image_off = None
-        self._image = False
-        self._value_on = '1'
-        self._value_off = '0'
+        self._value_on = value_on
+        self._value_off = value_off
+        self._image_on = QIcon(image_on)
+        self._image_off = QIcon(image_off)
+        self._sync_on = sync_on
+        self._sync_off = sync_off
+        self._action_on = action_on
+        self._action_off = action_off
+        self._topic = topic
 
         self._dataLabel = QLabel(label + ' : ')
         self._dataLabel.setAlignment(Qt.AlignLeft | Qt.AlignVCenter)
@@ -30,22 +50,28 @@ class SwitchWidget(QWidget):
         if label_width:
             self._dataLabel.setFixedWidth(label_width)
 
-        self._dataValue = QLabel()
-        self._dataValue.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+        self._dataImage = QLabel()
+        self._dataImage.setSizePolicy(QSizePolicy.MinimumExpanding, QSizePolicy.Fixed)
+        self._dataImage.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+
+        self._buttonImage = QLabel()
+        self._buttonImage.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        self._buttonImage.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
 
         main_layout = QHBoxLayout()
         main_layout.setContentsMargins(0, 0, 0, 0)
         main_layout.setSpacing(8)
         main_layout.addWidget(self._dataLabel)
-        main_layout.addWidget(self._dataValue)
+        main_layout.addWidget(self._dataImage)
+        main_layout.addWidget(self._buttonImage)
 
         self.setLayout(main_layout)
 
-        if 'image_on' in options and 'image_off' in options:
-            self._image_on = QIcon(options['image_on'])
-            self._image_off = QIcon(options['image_off'])
-            self._image = True
-            self._dataValue.setPixmap(self._image_off.pixmap(QSize(20, 20)))
+        self._button_on = QIcon(os.path.dirname(os.path.abspath(__file__)) + '/images/switch-on.svg')
+        self._button_off = QIcon(os.path.dirname(os.path.abspath(__file__)) + '/images/switch-off.svg')
+
+        self._dataImage.setPixmap(self._image_off.pixmap(QSize(20, 20)))
+        self._buttonImage.setPixmap(self._button_off.pixmap(QSize(32, 18)))
 
     # __________________________________________________________________
     @pyqtSlot(dict)
@@ -54,8 +80,8 @@ class SwitchWidget(QWidget):
         if self._variable in variables:
             if self._image:
                 if variables[self._variable] == self._value_on:
-                    self._dataValue.setPixmap(self._image_on.pixmap(QSize(20, 20)))
+                    self._dataImage.setPixmap(self._image_on.pixmap(QSize(20, 20)))
                 else:
-                    self._dataValue.setPixmap(self._image_off.pixmap(QSize(20, 20)))
+                    self._dataImage.setPixmap(self._image_off.pixmap(QSize(20, 20)))
             else:
-                self._dataValue.setText(variables[self._variable])
+                self._dataImage.setText(variables[self._variable])

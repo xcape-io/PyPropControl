@@ -14,15 +14,15 @@ from PyQt5.QtGui import QIcon
 class DataWidget(QWidget):
 
     # __________________________________________________________________
-    def __init__(self, label, variable, image_on=None, image_off=None, label_width=0):
+    def __init__(self, label, variable, value_on='1', value_off='0', image_on=None, image_off=None, label_width=0):
         super(DataWidget, self).__init__()
 
         self._variable = variable
+        self._value_on = value_on
+        self._value_off = value_off
         self._image_on = QIcon(image_on)
         self._image_off = QIcon(image_off)
         self._image = False
-        self._value_on = '1'
-        self._value_off = '0'
 
         self._dataLabel = QLabel(label + ' : ')
         self._dataLabel.setAlignment(Qt.AlignLeft | Qt.AlignVCenter)

@@ -108,7 +108,16 @@ class PanelDialog(AppletDialog):
                                        variable='led')
         box_layout.addWidget(self._dataLedText)
 
-        #self._blinkSwitch = SwitchWidget()
+        self._blinkSwitch = SwitchWidget(label=self.tr("Blinking"),
+                                   variable='blink',
+                                   image_on=DATALED_IMAGE_ON,
+                                   image_off=DATALED_IMAGE_OFF,
+                                   sync_on='no',
+                                   sync_off='yes',
+                                   action_on='blink:1',
+                                   action_off='blink:0',
+                                   topic=self._propInbox)
+        box_layout.addWidget(self._blinkSwitch)
 
         box_layout.addWidget(QLabel("<hr>"))
 

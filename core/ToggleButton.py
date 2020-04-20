@@ -14,7 +14,16 @@ class ToggleButton(QWidget):
     publishMessage = pyqtSignal(str, str)
 
     # __________________________________________________________________
-    def __init__(self, caption_on, caption_off, variable, sync_on, sync_off, action_on, action_off, topic):
+    def __init__(self,
+                 caption_on,
+                 caption_off,
+                 variable,
+                 sync_on,
+                 sync_off,
+                 action_on,
+                 action_off,
+                 topic):
+
         super(ToggleButton, self).__init__()
 
         self._caption_on = caption_on
