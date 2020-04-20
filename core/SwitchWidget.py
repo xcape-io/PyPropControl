@@ -22,6 +22,7 @@ class SwitchWidget(QWidget):
                  variable,
                  image_on,
                  image_off,
+                 sync,
                  sync_on, 
                  sync_off,
                  action_on,
@@ -38,6 +39,7 @@ class SwitchWidget(QWidget):
         self._value_off = value_off
         self._image_on = QIcon(image_on)
         self._image_off = QIcon(image_off)
+        self._sync = sync
         self._sync_on = sync_on
         self._sync_off = sync_off
         self._action_on = action_on
@@ -59,6 +61,8 @@ class SwitchWidget(QWidget):
         self._buttonImage.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
         self._buttonImage.setMouseTracking(True)
 
+        self._buttontoggled = False
+
         main_layout = QHBoxLayout()
         main_layout.setContentsMargins(0, 0, 0, 0)
         main_layout.setSpacing(8)
@@ -75,14 +79,18 @@ class SwitchWidget(QWidget):
         self._buttonImage.setPixmap(self._button_off.pixmap(QSize(32, 18)))
 
     # __________________________________________________________________
+    def mousePressEvent(self, event):
+
+        self._buttontoggled = not self._buttontoggled
+        print(self._buttontoggled)
+        pass
+
+    # __________________________________________________________________
     @pyqtSlot(dict)
     def onDataReceived(self, variables):
 
         if self._variable in variables:
-            if self._image:
-                if variables[self._variable] == self._value_on:
-                    self._dataImage.setPixmap(self._image_on.pixmap(QSize(20, 20)))
-                else:
-                    self._dataImage.setPixmap(self._image_off.pixmap(QSize(20, 20)))
+            if variables[self._variable] == self._value_on:
+                self._dataImage.setPixmap(self._image_on.pixmap(QSize(20, 20)))
             else:
-                self._dataImage.setText(variables[self._variable])
+                self._dataImage.setPixmap(self._image_off.pixmap(QSize(20, 20)))

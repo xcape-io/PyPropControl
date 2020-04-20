@@ -98,7 +98,7 @@ class PanelDialog(AppletDialog):
         box_layout.setSpacing(12)
         main_layout.addWidget(box)
 
-        self._dataLed = DataWidget(label=self.tr("Led (value)"),
+        self._dataLed = DataWidget(label=self.tr("Led"),
                                    variable='led',
                                    image_on=DATALED_IMAGE_ON,
                                    image_off=DATALED_IMAGE_OFF)
@@ -109,9 +109,10 @@ class PanelDialog(AppletDialog):
         box_layout.addWidget(self._dataLedText)
 
         self._blinkSwitch = SwitchWidget(label=self.tr("Blinking"),
-                                   variable='blink',
+                                   variable='led',
                                    image_on=DATALED_IMAGE_ON,
                                    image_off=DATALED_IMAGE_OFF,
+                                   sync='blink',
                                    sync_on='no',
                                    sync_off='yes',
                                    action_on='blink:1',
@@ -147,6 +148,7 @@ class PanelDialog(AppletDialog):
 
         self.propDataReveived.connect(self._dataLed.onDataReceived)
         self.propDataReveived.connect(self._dataLedText.onDataReceived)
+        self.propDataReveived.connect(self._blinkSwitch.onDataReceived)
         self.propDataReveived.connect(self._blinkToggleButton.onDataReceived)
         self._blinkOnButton.publishMessage.connect(self.publishMessage)
         self._blinkOffButton.publishMessage.connect(self.publishMessage)
