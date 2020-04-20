@@ -78,7 +78,7 @@ class PluginDialog(AppletDialog):
         main_layout.addLayout(header_layout)
 
 
-        self._dataLed = DataWidget(self.tr("Led"), 'led')
+        self._dataLed = DataWidget(self.tr("Led"), 'led', LABELS_WIDTH)
         main_layout.addWidget(self._dataLed)
 
 

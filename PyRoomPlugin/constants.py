@@ -28,6 +28,7 @@ APPDISPLAYNAME = "Room"  # the Room Control application
 # __________________________________________________________________
 # Required by the widgets
 LAYOUT_FILE = '.layout.yml'
+LABELS_WIDTH = 50
 
 # __________________________________________________________________
 # Required by the application

@@ -14,7 +14,7 @@ from PyQt5.QtCore import Qt, pyqtSlot
 class DataWidget(QWidget):
 
     # __________________________________________________________________
-    def __init__(self, label, variable):
+    def __init__(self, label, variable, label_width):
         super(DataWidget, self).__init__()
 
         self._variable = variable
@@ -22,6 +22,8 @@ class DataWidget(QWidget):
         self._dataLabel = QLabel(label + ' : ')
         self._dataLabel.setAlignment(Qt.AlignLeft | Qt.AlignVCenter)
         self._dataLabel.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        if label_width:
+            self._dataLabel.setFixedWidth(label_width)
 
         self._dataValue = QLabel()
         self._dataValue.setAlignment(Qt.AlignLeft | Qt.AlignVCenter)
