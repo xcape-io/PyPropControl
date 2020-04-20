@@ -97,7 +97,7 @@ Then:
 In `./core` folder you will find the most useful widgets for building a control panel:
 
 * **<a href="https://github.com/xcape-io/PyPropControl/blob/master/core/DataWidget.py" target="_blank">DataWidget</a>**
-* **PushButton**
+* **<a href="https://github.com/xcape-io/PyPropControl/blob/master/core/PushButton.py" target="_blank">PushButton</a>**
 * **SwitchWidget**
 * **<a href="https://github.com/xcape-io/PyPropControl/blob/master/core/ToggleButton.py" target="_blank">ToggleButton</a>**
 
