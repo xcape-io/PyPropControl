@@ -22,6 +22,22 @@ From this control panel skeleton you can write a prop control panel in minutes.
 5. Run `test.bat` to test your new panel.
 
 
+## Creating your own control panel
+<a href="https://www.jetbrains.com/pycharm/download/" target="_blank">Pycharm Community</a> is the free python IDE recommenbded for developing your own control panel.
+
+1. Edit `definitions.ini` to set the MQTT topics for your prop
+
+2. Edit `constants.py` to set your prop name and other constants specific to your application
+
+3. Edit `PluginDialog.py` to develop your own prop control panel
+
+In `./core` folder you will find the most useful widgets for building a control panel:
+
+* <a href="https://github.com/xcape-io/PyPropControl/blob/master/core/DataWidget.py" target="_blank">DataWidget</a>
+* PushButton
+* SwitchWidget
+* <a href="https://github.com/xcape-io/PyPropControl/blob/master/core/ToggleButton.py" target="_blank">ToggleButton</a>
+
 ## Author
 
 **Marie FAURE** (Apr 19th, 2020)
