@@ -4,89 +4,53 @@
 ToggleButton.py
 MIT License (c) Marie Faure <dev at faure dot systems>
 
-Prop action toggle button.
+Prop control toggle button.
 """
 
-from PyQt5.QtWidgets import QWidget, QLabel, QHBoxLayout, QSizePolicy, QStackedWidget
-from PyQt5.QtGui import QGuiApplication, QIcon, QPalette
-from PyQt5.QtCore import Qt, pyqtSignal, pyqtSlot
-
-LED_COLOR_STYLE_RED = "red"
-
+from PyQt5.QtWidgets import QWidget, QPushButton, QHBoxLayout
+from PyQt5.QtCore import pyqtSignal, pyqtSlot, Qt
 
 class ToggleButton(QWidget):
-    switched = pyqtSignal(str, str)
+    publishMessage = pyqtSignal(str, str)
 
     # __________________________________________________________________
-    def __init__(self, status, size):
+    def __init__(self, caption_on, caption_off, variable, sync_on, sync_off, action_on, action_off, topic):
         super(ToggleButton, self).__init__()
 
-        self._redAsBold = False
-        self._redAsRed = False
+        self._caption_on = caption_on
+        self._caption_off = caption_off
+        self._variable = variable
+        self._sync_on = sync_on
+        self._sync_off = sync_off
+        self._action_on = action_on
+        self._action_off = action_off
+        self._topic = topic
 
-        self._defaultText = status
-        self._defaultTextColor = "#{0:02x}{1:02x}{2:02x}".format(QGuiApplication.palette().color(QPalette.Text).red(),
-                                                                 QGuiApplication.palette().color(QPalette.Text).green(),
-                                                                 QGuiApplication.palette().color(QPalette.Text).blue())
-
-        self._ledImage = QStackedWidget()
-        self._ledImage.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
-
-        self._led = {}
-        for color in ['black', 'blue', 'gray', 'green', 'orange', 'purple', 'red', 'yellow']:
-            self._led[color] = QLabel()
-            self._led[color].setPixmap(QIcon("./leds/led-{0}.svg".format(color)).pixmap(size))
-            self._led[color].setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
-            self._ledImage.addWidget(self._led[color])
-
-        self._ledStatus = QLabel(self._defaultText)
-        self._ledStatus.setAlignment(Qt.AlignLeft | Qt.AlignVCenter)
-
-        self._color = None
+        self._pushButton = QPushButton(self._caption_off)
+        self._pushButton.setFocusPolicy(Qt.NoFocus)
 
         main_layout = QHBoxLayout()
         main_layout.setContentsMargins(0, 0, 0, 0)
         main_layout.setSpacing(8)
-        main_layout.addWidget(self._ledImage)
-        main_layout.addWidget(self._ledStatus)
+        main_layout.addWidget(self._pushButton)
 
         self.setLayout(main_layout)
 
-        self.switchOn('gray')
+        self._pushButton.released.connect(self.onPushButton)
 
     # __________________________________________________________________
-    def color(self):
-        return self._color
-
+    @pyqtSlot(dict)
+    def onDataReceived(self, variables):
+        '''
+        if self._image:
+            if variables[self._variable] == self._value_on:
+                self._dataValue.setPixmap(self._image_on.pixmap(QSize(20, 20)))
+            else:
+                self._dataValue.setPixmap(self._image_off.pixmap(QSize(20, 20)))
+        elif self._variable in variables:
+            self._dataValue.setText(variables[self._variable])
+        '''
     # __________________________________________________________________
-    def setRedAsBold(self, yes):
-        self._redAsBold = yes
-
-    # __________________________________________________________________
-    def setRedAsRed(self, yes):
-        self._redAsRed = yes
-
-    @pyqtSlot(str, str)
-    # __________________________________________________________________
-    def switchOn(self, color, text=""):
-
-        if not text:
-            text = self._defaultText
-        style_color = self._defaultTextColor
-        style_weight = "normal"
-
-        if color == 'red' and self._redAsBold:
-            style_weight = "bold"
-
-        if color == 'red' and self._redAsRed:
-            style_color = LED_COLOR_STYLE_RED
-
-        for c in ['black', 'blue', 'gray', 'green', 'orange', 'purple', 'red', 'yellow']:
-            if color == c:
-                self._ledImage.setCurrentWidget(self._led[color])
-                self._color = color
-
-        self._ledStatus.setStyleSheet("color: {0}; font-weight: {1}".format(style_color, style_weight))
-        self._ledStatus.setText(text)
-
-        self.switched.emit(color, text)
+    @pyqtSlot()
+    def onPushButton(self):
+        self.publishMessage.emit(self._topic, self._action_on)

@@ -18,10 +18,11 @@ from AppletDialog import AppletDialog
 from DataWidget import DataWidget
 from LedWidget import LedWidget
 from PushButton import PushButton
+from ToggleButton import ToggleButton
 
 from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import Qt, pyqtSignal, pyqtSlot, QSize, QPoint
-from PyQt5.QtWidgets import QHBoxLayout, QVBoxLayout, QPushButton, QGroupBox
+from PyQt5.QtWidgets import QHBoxLayout, QVBoxLayout, QPushButton, QGroupBox, QLabel
 
 
 class PanelDialog(AppletDialog):
@@ -108,6 +109,7 @@ class PanelDialog(AppletDialog):
 
         ##self._blinkSwitch = SwitchWidget()
 
+        box_layout.addWidget(QLabel("<hr>"))
 
         self._blinkOnButton = PushButton(self.tr("Start blinking"), 'blink:1', self._propInbox)
         box_layout.addWidget(self._blinkOnButton)
@@ -115,8 +117,17 @@ class PanelDialog(AppletDialog):
         self._blinkOffButton = PushButton(self.tr("Stop blinking"), 'blink:0', self._propInbox)
         box_layout.addWidget(self._blinkOffButton)
 
+        box_layout.addWidget(QLabel("<hr>"))
 
-        ##self._blinkToggleButton = ToggleButton()
+        self._blinkToggleButton = ToggleButton(caption_on=self.tr("Start blinking"),
+                                               caption_off=self.tr("Stop blinking"),
+                                               variable='blinking',
+                                               sync_on='yes',
+                                               sync_off='no',
+                                               action_on='blink:1',
+                                               action_off='blink:0',
+                                               topic=self._propInbox)
+        box_layout.addWidget(self._blinkToggleButton)
 
         main_layout.addStretch(0)
 
@@ -126,6 +137,7 @@ class PanelDialog(AppletDialog):
 
         self.propDataReveived.connect(self._dataLed.onDataReceived)
         self.propDataReveived.connect(self._dataLedText.onDataReceived)
+        self.propDataReveived.connect(self._blinkToggleButton.onDataReceived)
         self._blinkOnButton.publishMessage.connect(self.publishMessage)
         self._blinkOffButton.publishMessage.connect(self.publishMessage)
 

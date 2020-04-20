@@ -37,4 +37,4 @@ PROP_NAME = 'Arduino Blink'
 #NO_SETTINGS_DIALOG = True
 
 DATALED_IMAGE_ON = './images/led-circle-yellow.svg'
-DATALED_IMAGE_OFF = './images/led-circle-grey.svg'
+DATALED_IMAGE_OFF = './images/led-circle-generic.svg'
