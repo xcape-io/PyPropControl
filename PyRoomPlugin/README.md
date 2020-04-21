@@ -42,6 +42,17 @@ You are now ready to hack a new plugin :
 
 3. Edit `PluginDialog.py` to develop your own plugin
 
+In `./core` folder you will find the most useful widgets for building a plugin:
+
+* **<a href="https://github.com/xcape-io/PyPropControl/blob/master/core/AppletDialog.py" target="_blank">`AppletDialog`</a>**: base class that manages the size and position of the main dialog
+* **<a href="https://github.com/xcape-io/PyPropControl/blob/master/core/MqttApplet.py" target="_blank">`MqttApplet`</a>**: base class for you applet which manage all the MQTT messaging
+* **<a href="https://github.com/xcape-io/PyPropControl/blob/master/core/Singleton.py" target="_blank">`Singleton`</a>**: to guarantee the execution of a single instance of your applet
+* **<a href="https://github.com/xcape-io/PyPropControl/blob/master/core/LedWidget.py" target="_blank">`LedWidget`</a>**: to show the conenction state with the prop
+* **<a href="https://github.com/xcape-io/PyPropControl/blob/master/core/DataWidget.py" target="_blank">`DataWidget`</a>**: display a prop data with text or image
+* **<a href="https://github.com/xcape-io/PyPropControl/blob/master/core/PushButton.py" target="_blank">`PushButton`</a>**: button to send a message to the prop
+* **<a href="https://github.com/xcape-io/PyPropControl/blob/master/core/SwitchWidget.py" target="_blank">`SwitchWidget`</a>**: switch synchronized with a prop boolean data
+* **<a href="https://github.com/xcape-io/PyPropControl/blob/master/core/ToggleButton.py" target="_blank">`ToggleButton`</a>**: toggle button synchronized with a prop boolean data
+
 
 ## Author
 
