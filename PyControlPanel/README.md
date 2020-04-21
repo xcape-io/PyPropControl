@@ -15,7 +15,7 @@ From this control panel skeleton you can write a prop control panel in minutes.
 
 1. First install Python 3.8.x in `C:\Python38` ([Windows x86-64 executable installer](https://www.python.org/ftp/python/3.8.2/python-3.8.2-amd64.exe) from <a href="https://www.python.org/downloads/release/python-382/" target="_blank">python.org</a>)
 
-2. Download [`PanelInstallation.zip`](https://github.com/xcape-io/PyPropControl/raw/master/PyPropControlPanel/PanelInstallation.zip) from this GitHub repository 
+2. Download [`PyPropControlPanelInstallation.zip`](https://github.com/xcape-io/PyPropControl/raw/master/PyPropControlPanel/PyPropControlPanelInstallation.zip) from this GitHub repository 
 
 3. Unflate it in your panel folder
 
