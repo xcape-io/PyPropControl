@@ -70,7 +70,7 @@ $ sudo apt-get install python3-pyqt5 python3-pyqt5-dbg
 
 Then:
 
-1. Download [`PanelInstallation.zip`](https://github.com/xcape-io/PyPropControl/raw/master/PyPropControlPanel/PanelInstallation.zip) from this GitHub repository 
+1. Download [`PyPropControlPanelInstallation.zip`](https://github.com/xcape-io/PyPropControl/raw/master/PyControlPanel/PyControlPanelInstallation.zip) from this GitHub repository 
 
 2. Unflate it in your panel folder
 
