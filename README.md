@@ -1,23 +1,23 @@
 ﻿# PyQt5 Prop Control library
 *<a href="https://www.learnpyqt.com/" target="_blank">PyQt5</a> library to create control panels for escape room props.*
 
-<img src="work-in-progress.png" alt="Work in progress" height="75" width="75" align="middle"> Work in progress...
+The PyPropControl core library is shared by two projects:
+* [PyControlPanel](https://github.com/xcape-io/PyPropControl/tree/master/PyControlPanel)
+* [PyRoomPlugin](https://github.com/xcape-io/PyPropControl/tree/master/PyRoomPlugin)
 
-[QtProp](https://github.com/xcape-io/PyProps/tree/master/QtProp) in [PyProps library](https://github.com/xcape-io/PyProps) and <a href="https://xcape.io/" target="_blank">*xcape.io* **Room**</a> plugins are written with <a href="https://www.learnpyqt.com/" target="_blank">PyQt5</a> therefore we, **and you**, can leverage in coding prop control panels.
+[QtProp](https://github.com/xcape-io/PyProps/tree/master/QtProp) in [PyProps library](https://github.com/xcape-io/PyProps) is also written with <a href="https://www.learnpyqt.com/" target="_blank">PyQt5</a> therefore we, **and you**, can leverage in coding prop control panels and *<a href="https://xcape.io/" target="_blank">xcape.io</a> __Room__*.
 
 <a href="https://www.learnpyqt.com/" target="_blank">PyQt5</a> has its own event loop to multitask seamlessly and it brings the power of <a href="https://doc.qt.io/" target="_blank">Qt</a> to Python.
 
 <a href="https://www.jetbrains.com/pycharm/download/" target="_blank">Pycharm Community</a> is the free python IDE recommenbded for developing your own plugin or control panel.
 
-## Installation
-You will find installation instructions in [INSTALLATION.md](INSTALLATION.md)
+## PyControlPanel
+See [PyControlPanel project](https://github.com/xcape-io/PyPropControl/tree/master/PyControlPanel).
 
+## PyRoomPlugin
+See [PyRoomPlugin project](https://github.com/xcape-io/PyPropControl/tree/master/PyRoomPlugin).
 
-## Widget
-* props connection led
-* data text widget
-* push button
-* togle button
+## PyPropControl core library 
 
 
 
