@@ -3,7 +3,7 @@
 
 In the area of ​​Escape Room creation, we need to code quickly and reliably, and we need to streamline and reuse our code.
 
-From this plugin skeleton you can write a plugin for *<a href="https://xcape.io/" target="_blank">xcape.io</a>* **Room** software in minutes.
+From this plugin skeleton you can write a plugin for *<a href="https://xcape.io/" target="_blank">xcape.io</a> __Room__* software in minutes.
 
 ![](screenshots/shot.png)
  
@@ -14,7 +14,7 @@ To write your very first **Room** plugin, we recommend you follow the
 
 1. First install Python 3.8.x in `C:\Python38` ([Windows x86-64 executable installer](https://www.python.org/ftp/python/3.8.2/python-3.8.2-amd64.exe) from <a href="https://www.python.org/downloads/release/python-382/" target="_blank">python.org</a>)
 
-2. Download [`PluginInstallation.zip`](https://github.com/xcape-io/PyPropControl/raw/master/PyRoomPlugin/PluginInstallation.zip) from this GitHub repository 
+2. Download [`PyRoomPluginInstallation.zip`](https://github.com/xcape-io/PyPropControl/raw/master/PyRoomPlugin/PyRoomPluginInstallation.zip) from this GitHub repository 
 
 3. Unflate it in your plugin folder
 
@@ -33,7 +33,7 @@ You are now ready to hack a new plugin :
 * create a new PyCharm project in the plugin folder (<a href="https://xcape.io/public/documentation/en/room/EditEchopluginwithPyCharm.html" target="_blank">see ***Room*** manual</a>)
 
 
-## Creating your own control panel
+## Creating your own Room plugin
 <a href="https://www.jetbrains.com/pycharm/download/" target="_blank">Pycharm Community</a> is the free python IDE recommenbded for developing your own plugin.
 
 1. Edit `definitions.ini` to set the MQTT topics for your prop
@@ -41,13 +41,6 @@ You are now ready to hack a new plugin :
 2. Edit `constants.py` to set your prop name and other constants specific to your plugin
 
 3. Edit `PluginDialog.py` to develop your own plugin
-
-For this example, we built a plugin to control an Arduino Yún running the **BlinkOnBridgeProp** sketch <a href="https://github.com/xcape-io/ArduinoProps/tree/master/examples" target="_blank">example</a> from the <a href="https://github.com/xcape-io/ArduinoProps" target="_blank">ArduinoProps library</a>.
-
-Alternatively it works the same with:
-* **BlinkOnEthernetProp**
-* **BlinkOnWifiProp**
-* **BlinkOnBridgePubSub**
 
 
 ## Author
