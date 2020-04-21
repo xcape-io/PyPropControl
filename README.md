@@ -1,9 +1,9 @@
 ﻿# PyQt5 Prop Control library
 *<a href="https://www.learnpyqt.com/" target="_blank">PyQt5</a> library to create control panels for escape room props.*
 
-The PyPropControl core library is shared by two projects:
-* [PyControlPanel](https://github.com/xcape-io/PyPropControl/tree/master/PyControlPanel)
-* [PyRoomPlugin](https://github.com/xcape-io/PyPropControl/tree/master/PyRoomPlugin)
+The [PyPropControl core library](https://github.com/xcape-io/PyPropControl#pypropcontrol-core-library) is shared by two projects:
+* [PyControlPanel](https://github.com/xcape-io/PyPropControl#pycontrolpanel)
+* [PyRoomPlugin](https://github.com/xcape-io/PyPropControl#pyroomplugin)
 
 [QtProp](https://github.com/xcape-io/PyProps/tree/master/QtProp) in [PyProps library](https://github.com/xcape-io/PyProps) is also written with <a href="https://www.learnpyqt.com/" target="_blank">PyQt5</a> therefore we, **and you**, can leverage in coding prop control panels and *<a href="https://xcape.io/" target="_blank">xcape.io</a> __Room__*.
 
@@ -14,8 +14,12 @@ The PyPropControl core library is shared by two projects:
 ## PyControlPanel
 See [PyControlPanel project](https://github.com/xcape-io/PyPropControl/tree/master/PyControlPanel).
 
+
+
 ## PyRoomPlugin
 See [PyRoomPlugin project](https://github.com/xcape-io/PyPropControl/tree/master/PyRoomPlugin).
+
+
 
 ## PyPropControl core library 
 
