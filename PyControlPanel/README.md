@@ -98,7 +98,7 @@ In `./core` folder you will find the most useful widgets for building a control 
 
 * **<a href="https://github.com/xcape-io/PyPropControl/blob/master/core/DataWidget.py" target="_blank">DataWidget</a>**
 * **<a href="https://github.com/xcape-io/PyPropControl/blob/master/core/PushButton.py" target="_blank">PushButton</a>**
-* **SwitchWidget**
+* **<a href="https://github.com/xcape-io/PyPropControl/blob/master/core/SwitchWidget.py" target="_blank">SwitchWidget</a>**
 * **<a href="https://github.com/xcape-io/PyPropControl/blob/master/core/ToggleButton.py" target="_blank">ToggleButton</a>**
 
 For this example, we built a plugin to control an Arduino Yún running the **BlinkOnBridgeProp** sketch <a href="https://github.com/xcape-io/ArduinoProps/tree/master/examples" target="_blank">example</a> from the <a href="https://github.com/xcape-io/ArduinoProps" target="_blank">ArduinoProps library</a>.
