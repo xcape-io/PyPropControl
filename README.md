@@ -59,11 +59,13 @@ See <a href="https://github.com/xcape-io/PyPropControl/tree/master/core" target=
 * `AppletDialog`: base class that manages the size and position of the main dialog
 * `MqttApplet`: base class for you applet which manage all the MQTT messaging
 * `Singleton`: to guarantee the execution of a single instance of your applet
-* `LedWidget`: 
-* **<a href="https://github.com/xcape-io/PyPropControl/blob/master/core/DataWidget.py" target="_blank">DataWidget</a>**
-* **<a href="https://github.com/xcape-io/PyPropControl/blob/master/core/PushButton.py" target="_blank">PushButton</a>**
-* **<a href="https://github.com/xcape-io/PyPropControl/blob/master/core/SwitchWidget.py" target="_blank">SwitchWidget</a>**
-* **<a href="https://github.com/xcape-io/PyPropControl/blob/master/core/ToggleButton.py" target="_blank">ToggleButton</a>**
+* `LedWidget`: to show teh conenction state with the prop
+* `DataWidget`: display a prop data with text or image
+* `PushButton`: button to send a message to the prop
+* `SwitchWidget`: switch synchronized with a prop boolean data
+* `ToggleButton`: toggle button synchronized with a prop boolean data
+
+![Prop control panel](PyControlPanel/screenshots/shot.png)
 
 ## Author
 
