@@ -12,12 +12,12 @@ The [PyPropControl core library](https://github.com/xcape-io/PyPropControl#pypro
 <a href="https://www.jetbrains.com/pycharm/download/" target="_blank">Pycharm Community</a> is the free python IDE recommenbded for developing your own plugin or control panel.
 
 ## PyControlPanel
-See [PyControlPanel project](https://github.com/xcape-io/PyPropControl/tree/master/PyControlPanel).
+See [PyControlPanel project](https://github.com/xcape-io/PyPropControl/tree/master/PyControlPanel#pycontrolpanel).
 
 
 
 ## PyRoomPlugin
-See [PyRoomPlugin project](https://github.com/xcape-io/PyPropControl/tree/master/PyRoomPlugin).
+See [PyRoomPlugin project](https://github.com/xcape-io/PyPropControl/tree/master/PyRoomPlugin#pyroomplugin).
 
 
 
