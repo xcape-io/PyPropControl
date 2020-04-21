@@ -65,8 +65,6 @@ class MqttApplet(QApplication):
         self._config = {}
         self._definitions = {}
         self._mqttSubscriptions = []
-        self._mqttInbox = None
-        self._mqttOutbox = None
         self._mqttServerHost = MQTT_DEFAULT_HOST
         self._mqttServerPort = MQTT_DEFAULT_PORT
         self._publishable = []
@@ -80,11 +78,6 @@ class MqttApplet(QApplication):
                     self._definitions[key] = self._config.get("mqtt", key)
                     if key.startswith('mqtt-sub-'):
                         self._mqttSubscriptions.append(self._definitions[key])
-                    if key == 'app-inbox':
-                        self._mqttInbox = self._definitions[key]
-                        self._mqttSubscriptions.append(self._mqttInbox)
-                    if key == 'app-outbox':
-                        self._mqttOutbox = self._definitions[key]
 
         if os.path.isfile(CONFIG_FILE):
             with open(CONFIG_FILE, 'r') as conffile:
@@ -154,11 +147,6 @@ class MqttApplet(QApplication):
                 ch = logging.FileHandler('prop.log', 'w')
                 ch.setLevel(logging.INFO)
                 self._logger.addHandler(ch)
-
-            if self._mqttInbox is None:
-                self._logger.warning("Props inbox topic is not defined")
-            if self._mqttOutbox is None:
-                self._logger.warning("Props outbox topic is not defined")
 
             with open(CONFIG_FILE, 'w') as conffile:
                 yaml.dump(self._config, conffile, default_flow_style=False)
