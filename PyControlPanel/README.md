@@ -29,7 +29,7 @@ From this control panel skeleton you can write a prop control panel in minutes.
 
 6. Run `test.bat` to test your new panel.
 
-### Installation on Mac, Linux and Raspberry
+### Installation on Debian based Linux distros
 *PyControlPanel* is a pure python applet so you can install it on any computer running python with <a href="https://www.learnpyqt.com/" target="_blank">PyQt5</a>.
 
 #### Example of installation on Ubuntu/Debian based distros
@@ -58,7 +58,7 @@ Then:
     $ python3 main.py -s 192.168.1.42
     ```
 
-#### Installation on Raspberry Pi
+### Installation on Raspberry Pi (Raspbian)
 With the new Raspberry Pi 4 with 2 HDMI outputs and 4GB memory, controlling your escape room with a Raspberry Pi starts to make sense.
 
 You will have to install following Python packages:
@@ -83,6 +83,10 @@ Then:
     ```bash
     $ python3 main.py -s 192.168.1.42
     ```
+
+### Installation on Mac
+
+PyQt5 installation on Mac can be tricky, see <a href="https://www.learnpyqt.com/installation/installation-mac/" target="_blank">PyQt5 installation on Mac at LearnPyQt</a>.
 
 
 ## Creating your own control panel
