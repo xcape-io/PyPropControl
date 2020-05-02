@@ -113,20 +113,12 @@
     <target>MQTT API : échec de l&apos;appel à connect_async()</target>
 </phrase>
 <phrase>
-    <source>Teletext sub topic definition is missing</source>
+    <source>Sub topic definition is missing: mqtt-sub-prop</source>
     <target>Définition manquante: mqtt-sub-prop</target>
 </phrase>
 <phrase>
-    <source>Teletext sub topic definition is missing</source>
-    <target>Définition manquante: mqtt-sub-prop</target>
-</phrase>
-<phrase>
-    <source>Language sub topic definition is missing</source>
+    <source>Sub topic definition is missing: mqtt-sub-control-scenario</source>
     <target>Définition manquante: mqtt-sub-control-scenario</target>
-</phrase>
-<phrase>
-    <source>Teletext</source>
-    <target>Télétexte</target>
 </phrase>
 <phrase>
     <source>exitOnClose </source>
@@ -157,56 +149,20 @@
     <target>MQTT message impossible à décoder pour</target>
 </phrase>
 <phrase>
-    <source>Message received from Teletext props : &apos;</source>
-    <target>Message reçu de la props Teletext : &apos;</target>
+    <source>Message received from prop : &apos;</source>
+    <target>Message reçu de la prop : &apos;</target>
 </phrase>
 <phrase>
-    <source>Decoding MQTT message from Teletext props failed on</source>
-    <target>Message de la props Teletext impossible à décoder pour</target>
-</phrase>
-<phrase>
-    <source>TeletextPlugin inbox is not defined, message ignored</source>
-    <target>TeletextPlugin inbox n&apos;est pas définie, message ignoré</target>
-</phrase>
-<phrase>
-    <source>Display sub topic definition is missing</source>
-    <target>Définition manquante: sub topic display</target>
-</phrase>
-<phrase>
-    <source>Display message received from Teletext props : &apos;</source>
-    <target>Message reçu de la props Teletext : &apos;</target>
-</phrase>
-<phrase>
-    <source>Decoding MQTT display message from Teletext props failed on</source>
-    <target>Message Display de la props Teletext impossible à décoder pour</target>
+    <source>Decoding MQTT message from prop failed on</source>
+    <target>Message de la prop impossible à décoder pour</target>
 </phrase>
 <phrase>
     <source>Settings</source>
     <target>Configuration</target>
 </phrase>
 <phrase>
-    <source>Effects and language</source>
-    <target>Effets et langues</target>
-</phrase>
-<phrase>
-    <source>Erase draft</source>
-    <target>Effacer le brouillon</target>
-</phrase>
-<phrase>
-    <source>Display on TV</source>
-    <target>Afficher sur TV</target>
-</phrase>
-<phrase>
-    <source>Clue</source>
-    <target>Indice</target>
-</phrase>
-<phrase>
-    <source>Request received : language in </source>
-    <target>Requête reçue : langue en </target>
-</phrase>
-<phrase>
-    <source>Clear TV screen</source>
-    <target>Effacer l&apos;écran TV</target>
+    <source>Erase</source>
+    <target>Effacer</target>
 </phrase>
 <phrase>
     <source>ignored because &apos;fr&apos; is missing</source>
@@ -235,14 +191,6 @@
 <phrase>
     <source>Close</source>
     <target>Fermer</target>
-</phrase>
-<phrase>
-    <source>Settings : set clues in English</source>
-    <target>Configuration : indices en anglais</target>
-</phrase>
-<phrase>
-    <source>Settings : set clues in French</source>
-    <target>Configuration : indices en français</target>
 </phrase>
 <phrase>
     <source>Session done</source>
