@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 MqttApplet.py
-MIT License (c) Marie Faure <dev at faure dot systems>
+MIT License (c) Faure Systems <dev at faure dot systems>
 
 Base class for xcape.io Room applet (PyQt5 console application with MQTT).
 """

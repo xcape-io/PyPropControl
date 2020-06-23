@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 PluginSettingsDialog.py
-MIT License (c) Marie Faure <dev at faure dot systems>
+MIT License (c) Faure Systems <dev at faure dot systems>
 
 Dialog to configure plugin parameters.
 """

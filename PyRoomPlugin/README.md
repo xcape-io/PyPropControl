@@ -56,7 +56,7 @@ In `./core` folder you will find the most useful widgets for building a plugin:
 
 ## Author
 
-**Marie FAURE** (Apr 19th, 2020)
+**Faure Systems** (Apr 19th, 2020)
 * company: FAURE SYSTEMS SAS
 * mail: *dev at faure dot systems*
 * github: <a href="https://github.com/fauresystems?tab=repositories" target="_blank">fauresystems</a>
